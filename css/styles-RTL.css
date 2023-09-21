@@ -1476,6 +1476,16 @@ body.hard-squared-btns .portfolio-btn {
     font-size: 2.5rem;
   }
 }
+.page-hero .hero-text-area .light-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+@media (max-width: 991px) {
+  .page-hero .hero-text-area .light-title {
+    font-size: 2rem;
+  }
+}
 .page-hero .hero-text-area .hero-subtitle,
 .page-hero .hero-text-area .slide-subtitle {
   color: #f1f1f1;
