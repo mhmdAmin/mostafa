@@ -1,0 +1,56 @@
+section(id="our-team" class="our-team mega-section d-flex align-items-center")
+  div(class="container")
+    -var sec_title_text="our team"
+    -var sec_sub_title_text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, architecto cupiditate odio rerum est"
+    +add_on_center_section_heading(sec_title_text,sec_sub_title_text)
+
+    
+    div(class="row")
+
+      //first Team Member
+      div(class="col-12 col-md-8  col-lg-4 mx-md-auto ")
+        div(class="tm-member-card   wow   fadeInUp" data-wow-delay="0.2s")
+          div(class="tm-image ")
+            div(class="overlay overlay-color") 
+            img(src=tm_img_1 class="img-fluid " alt="Team Member 1")
+            div(class="tm-desc")
+              +add_social_icons_list("dir-row sc-size-40")
+          div(class="tm-details")
+            h6(class="tm-name") ahmed Aly
+            span(class="tm-role") web developer
+            
+            
+
+
+
+      //Second Team Member
+      div(class="col-12 col-md-8  col-lg-4 mx-md-auto ")
+        div(class="tm-member-card   wow   fadeInUp" data-wow-delay="0.4s")
+          div(class="tm-image ")
+            div(class="overlay overlay-color") 
+            img(src=tm_img_2 class="img-fluid " alt="Team Member 2")
+            div(class="tm-desc")
+              +add_social_icons_list("dir-row sc-size-40")
+          div(class="tm-details")
+            h6(class="tm-name ") fairouz amin
+            span(class="tm-role") web designer
+            
+            
+
+
+      //Third Team Member
+      div(class="col-12 col-md-8  col-lg-4 mx-md-auto ")
+        div(class="tm-member-card   wow   fadeInUp" data-wow-delay="0.6s")
+          div(class="tm-image ")
+            div(class="overlay overlay-color") 
+            img(src=tm_img_3 class="img-fluid " alt="Team Member 3")
+            div(class="tm-desc")
+              +add_social_icons_list("dir-row sc-size-40")    
+          div(class="tm-details")
+            h6(class="tm-name") Allan Smith
+            span(class="tm-role") graphic designer
+            
+            
+    //Start teamsee-more-area
+    div(class="see-more-area   wow fadeInUp" data-wow-delay="0.8s")
+      a(href="#0" class=" ma-btn-primary") see all team members 

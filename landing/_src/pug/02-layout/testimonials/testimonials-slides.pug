@@ -1,0 +1,69 @@
+div(class="swiper-container  wow fadeInUp  " data-wow-delay="0.4s")
+  div( class="swiper-wrapper")
+
+    //First Slide
+    div( class="swiper-slide")
+      div( class="testimonial-content")
+        div(class="customer-testimonial")
+          i(class="fas fa-quote-left   icon")
+          div(class="content")
+            p(class="testimonial-text ")
+              . 
+                ipsum
+                dolor sit amet consectetur adipisicing elit. Quod, id sequi aut qui est
+                ab,
+                corporis quis maiores reiciendis explicabo odio tenetur nulla sint vel.
+        div(class="customer-info ")
+          img(src=customer_img_1 class="img-fluid " alt="First Slide ")
+          div(class="customer-details")
+            p(class="customer-name") mhmd Amin
+            p(class="customer-role") manager
+
+    //Second Slide
+    div( class="swiper-slide")
+      div(class="testimonial-content")
+        div(class="customer-testimonial")
+          i(class="fas fa-quote-left    icon ")
+          div(class="content")
+            p(class="testimonial-text ")
+              . 
+                ipsum
+                dolor sit amet consectetur adipisicing elit. Quod, id sequi aut qui est
+                ab,
+                corporis quis maiores reiciendis explicabo odio tenetur nulla sint vel.
+        div(class="customer-info ")
+          img(src=customer_img_2 class="img-fluid " alt="First Slide ")
+          div(class="customer-details")
+            p(class="customer-name") yusuf Amin
+            p(class="customer-role") manager
+
+    //Third Slide
+    div( class="swiper-slide")
+      div(class="testimonial-content")
+        div(class="customer-testimonial")
+          i(class="fas fa-quote-left   icon")
+          div(class="content")
+            p(class="testimonial-text ")
+              . 
+                ipsum
+                dolor sit amet consectetur adipisicing elit. Quod, id sequi aut qui est
+                ab,
+                corporis quis maiores reiciendis explicabo odio tenetur nulla sint vel.
+        div(class="customer-info ")
+          img(src=customer_img_3 class="img-fluid " alt="First Slide ")
+          div(class="customer-details")
+            p(class="customer-name") mostafa Amin
+            p(class="customer-role") manager
+
+  //navigation buttons
+  div(class="swiper-button-prev")
+    div(class="left-arrow")
+      //- adding the PREV correct icon arrow  according to the direction of the page
+      +add_correct_PREV_arrow_icon()
+
+  div(class="swiper-button-next")
+    div(class="right-arrow")
+      //- adding the NEXT correct icon arrow  according to the direction of the page
+      +add_correct_NEXT_arrow_icon()
+
+

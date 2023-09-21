@@ -1,0 +1,145 @@
+%base-service-box {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 0;
+  @include ma-transition();
+}
+
+%base-service-icon {
+  display: inline-block;
+  margin: 0 auto;
+  position: relative;
+  @include ma-transition();
+}
+
+%base-font-icon {
+  display: inline-block;
+  font-size: 2rem;
+  color: $main-color;
+  transform-origin: center;
+}
+
+%base-img-icon {
+  width: 4rem;
+  height: 4rem;
+}
+
+%base-service-title {
+  text-transform: capitalize;
+  font-size: 1.35rem;
+  font-weight: 800;
+  @include ma-transition();
+  color: $extra-dark-grey-color;
+}
+
+%base-service-text {
+  padding: 0 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0;
+  color: $semi-dark-grey-color;
+  @include ma-transition();
+}
+
+.services {
+  .services-row {
+    margin-bottom: 2rem;
+  }
+
+  .service-box {
+    @extend %base-service-box;
+    margin-bottom: 0;
+
+    @include ma-md-screens {
+      padding: 1rem;
+    }
+
+    .service-icon {
+      @extend %base-service-icon;
+      margin-#{$start-direction}: 0;
+      margin-bottom: 1rem;
+
+      .font-icon {
+        @extend %base-font-icon;
+        font-size: 2.5rem;
+      }
+
+      .img-icon {
+        @extend %base-img-icon;
+      }
+    }
+
+    .service-content {
+      margin-bottom: 1rem;
+
+      .service-title {
+        @extend %base-service-title;
+        margin-bottom: 1rem;
+      }
+
+      .service-text {
+        @extend %base-service-text;
+      }
+    }
+
+    &:hover {
+      .service-icon {
+        transform: translateY(-10px);
+      }
+    }
+  }
+}
+
+.services-boxed {
+  .services-row {
+    margin-bottom: 1rem;
+  }
+
+  .service-box {
+    @extend %base-service-box;
+    margin-bottom: 2rem;
+
+    padding: 3rem 2rem;
+    border-radius: 0.5rem;
+    @include ma-box-shadow(0, 0, 20, 0, rgba($black-color, 0.15));
+
+    @include ma-md-screens {
+      padding: 2rem;
+    }
+
+    .service-icon {
+      @extend %base-service-icon;
+      margin-#{$start-direction}: 0;
+      margin-bottom: 1rem;
+
+      .font-icon {
+        @extend %base-font-icon;
+        font-size: 2.5rem;
+      }
+
+      .img-icon {
+        @extend %base-img-icon;
+      }
+    }
+
+    .service-content {
+      margin-bottom: 1rem;
+
+      .service-title {
+        @extend %base-service-title;
+        margin-bottom: 1rem;
+      }
+
+      .service-text {
+        @extend %base-service-text;
+      }
+    }
+
+    &:hover {
+      .service-icon {
+        transform: translateY(-10px);
+      }
+    }
+  }
+}

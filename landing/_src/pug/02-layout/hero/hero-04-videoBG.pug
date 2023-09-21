@@ -1,0 +1,26 @@
+section(id="page-hero" class="page-hero d-flex align-items-center")
+  div(id="particles-js" class="particles-js ")
+  div( class="video-wrapper")
+     video(class="hero-video-bg", src= heroVideoBg,  autoplay, muted, loop) 
+  div(class="overlay-color ")
+  div(class="container")
+    div(class="row")
+      div(class="col-12 col-lg-10 mx-auto")
+      
+        //Start of .hero-text-area
+        div(class="hero-text-area text-center ")
+          h1( class="hero-title "  data-splitting) Add more value to your skills with
+            |
+            |
+            span(class="heading-brand-name") 
+              | #{ThemeName}
+          p(class="hero-subtitle  narrow-centerd-text"  data-splitting="words"  )
+            . 
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed
+              architecto dolorum inventore
+              impedit ad porro nisi autem iste quidem minus.
+          div(class="cta-links-area  wow fadeInUp " data-wow-delay=".6s")
+              +add_play_btn_row_dir('watch our video')          
+
+        //End of .hero-text-area
+

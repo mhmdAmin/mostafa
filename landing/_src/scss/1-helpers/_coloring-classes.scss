@@ -1,0 +1,110 @@
+/*-------------Start text color classes-------------*/
+.text-gradient-color {
+  // this class colors the text of any element used it with linear-gradient colors
+  @include linear-gradient-text();
+}
+
+.text-main-color {
+  color: $main-color !important;
+}
+
+.text-accent-color {
+  color: $accent-color !important;
+}
+
+.text-white-color {
+  color: $white-color !important;
+}
+
+.text-black-color {
+  color: $black-color !important;
+}
+
+.text-grey-color {
+  color: $grey-color !important;
+}
+
+.text-extra-dark-grey-color {
+  color: $extra-dark-grey-color !important;
+}
+
+.text-dark-grey-color {
+  color: $dark-grey-color !important;
+}
+
+/*-------------End text color classes-------------*/
+
+/*-------------Start bg color classes-------------*/
+
+.bg-gradient-color {
+  // this class colors the background of any element used it with linear-gradient colors
+  @include linear-gradient-bg();
+  @include ma-transition;
+}
+
+.bg-solid-color {
+  background: $main-color;
+}
+
+.bg-main-color {
+  background: $main-color !important;
+}
+
+.bg-accent-color {
+  background: $accent-color !important;
+}
+
+.bg-white-color {
+  background: $white-color !important;
+}
+
+.bg-black-color {
+  background: $black-color !important;
+}
+
+.bg-grey-color {
+  background: $grey-color !important;
+}
+
+.bg-dark-grey-color {
+  background: $dark-grey-color !important;
+}
+
+.bg-extra-dark-grey-color {
+  background: $extra-dark-grey-color !important;
+}
+
+.section-bg-shade {
+  background: darken($white-color, 5%) !important;
+
+  svg {
+    path {
+      fill: darken($white-color, 5%) !important;
+    }
+  }
+}
+
+/*-------------End bg color classes-------------*/
+
+// UTILITY CLASSES USED ON BODY TAG TO AFFECT THE GLOBAL ELMENTS ON THE PAGE
+body {
+  &.section-heading-gradient {
+    .section-title {
+      @include linear-gradient-text();
+    }
+  }
+
+  &.section-heading-main-color {
+    .section-title {
+      background: none;
+      -webkit-text-fill-color: $main-color;
+      color: $main-color;
+    }
+  }
+
+  &.section-heading-black {
+    .section-title {
+      color: $extra-dark-grey-color;
+    }
+  }
+}

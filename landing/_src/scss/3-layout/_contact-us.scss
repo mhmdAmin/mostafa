@@ -1,0 +1,281 @@
+//This rules serv the contact-us form and the reply-form on the post-single page
+
+.main-form-wraper {
+  %label-correct-position-while-the-input-has-text {
+    top: -2rem;
+    font-size: 1rem;
+    font-weight: 800;
+    color: $main-color;
+  }
+
+  .not-req {
+    display: none;
+  }
+
+  .req {
+    color: red;
+  }
+
+  .input-wraper {
+    position: relative;
+    margin-bottom: 3rem;
+
+    &.has-text {
+      input[type="email"],
+      input[type="text"],
+      input[type="password"],
+      input[type="url"],
+      input[type="search"],
+      input[type="number"],
+      textarea {
+        background-color: rgba($main-color, 0.35);
+      }
+
+      label {
+        @extend %label-correct-position-while-the-input-has-text;
+      }
+
+      .b-border {
+        transform: scaleX(1);
+      }
+    }
+
+    .input-icon {
+      position: absolute;
+      #{$start-direction}: auto;
+      #{$end-direction}: 0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $semi-dark-grey-color;
+    }
+  }
+
+  .b-border {
+    display: block;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: center;
+    height: 2px;
+    background: $main-color;
+    position: absolute;
+    bottom: 0;
+    #{$start-direction}: 0;
+    z-index: 1;
+    @include ma-transition(all, 0.3s);
+  }
+
+  .error-msg {
+    position: absolute;
+    #{$end-direction}: 0;
+    top: -2rem;
+    transform: translateY(50%);
+    font-size: 0.85rem;
+    color: red;
+    display: none;
+  }
+
+  .done-msg {
+    font-size: 1rem;
+    color: green;
+    //  padding: .5rem 0;
+    visibility: hidden;
+    opacity: 0;
+    @include ma-transition();
+
+    &.show {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  label:not(.lbl-for-checkbox) {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: $main-color;
+    position: absolute;
+    font-size: 0.95rem;
+    #{$start-direction}: 0;
+    top: 10px;
+    color: rgba($semi-dark-grey-color, 0.5);
+    @include ma-transition(all, 0.3s);
+  }
+
+  .lbl-for-checkbox {
+    margin: 0;
+    padding: 0;
+    margin-#{$start-direction}: 0.5rem;
+    text-transform: capitalize;
+    color: $semi-dark-grey-color;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+
+  input[type="email"],
+  input[type="text"],
+  input[type="password"],
+  input[type="url"],
+  input[type="search"],
+  input[type="number"],
+  textarea {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgba($main-color, 0.5);
+    @include ma-transition(all, 0.3s);
+    background-color: transparent;
+    color: $extra-dark-grey-color;
+
+    &:focus {
+      background-color: rgba($main-color, 0.35);
+      & ~ .b-border {
+        transform: scaleX(1);
+      }
+
+      & ~ label {
+        @extend %label-correct-position-while-the-input-has-text;
+      }
+    }
+
+    [type="submit"] {
+      &:focus {
+        outline: none !important;
+      }
+    }
+  }
+
+  textarea {
+    min-height: 8rem;
+  }
+
+  .keep-me-logged-in {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .check-input {
+      -webkit-appearance: none;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 0.25rem;
+      border: 1px solid $main-color;
+      outline: none;
+      cursor: pointer;
+
+      &:checked ~ .icon {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .icon {
+      position: absolute;
+      #{$start-direction}: 2px;
+      top: 4px;
+      font-size: 0.75rem;
+      color: $main-color;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      @include ma-transition;
+    }
+  }
+
+  input[type="submit"] {
+    outline: none;
+    border: none;
+  }
+}
+
+.contact-info {
+  .map-box {
+    .mapouter {
+      position: relative;
+      text-align: #{$end-direction};
+      height: 500px;
+      width: 100%;
+
+      .gmap_canvas {
+        overflow: hidden;
+        background: none !important;
+        height: 500px;
+        width: 100%;
+      }
+
+      .map-iframe {
+        width: 100%;
+        height: 500px;
+        border: none;
+      }
+    }
+
+    @include ma-lg-screens {
+      margin-bottom: 3rem;
+    }
+  }
+
+  .info-section {
+    padding: 2rem 0;
+  }
+
+  .info-panel {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $main-color;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 50%;
+    -webkit-text-stroke-color: $main-color;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .info-title {
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  .info-text {
+    text-transform: capitalize;
+    font-size: 1rem;
+    color: $semi-dark-grey-color;
+    margin: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .link {
+    display: block;
+    text-transform: lowercase;
+    text-decoration: none;
+    color: $semi-dark-grey-color;
+    margin-bottom: 0.5rem;
+
+    @include ma-transition(color, 0.3s);
+
+    &:hover {
+      color: $main-color;
+    }
+  }
+}
+
+.contact-us-image {
+  padding-top: 1.25rem;
+  padding-bottom: 2.5rem;
+  text-align: center;
+}
+
+/*End user-form Rules*/

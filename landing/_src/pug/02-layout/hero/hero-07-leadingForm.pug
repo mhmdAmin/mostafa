@@ -1,0 +1,54 @@
+section( id="page-hero" class="d-flex align-items-center page-hero ")
+    div(class="overlay-image-bg")
+    div(class="overlay-color")
+    div(class="container")
+        div(class="row d-flex align-items-center")
+            div(class="col-12 col-lg-6")
+                //Start of .hero-text-area
+                div(class="hero-text-area mb-5  mb-lg-0 wow  fadeInLeft " data-wow-delay="0.4s")
+                    h1( class="hero-title"  data-splitting) boost  your business with
+                      |
+                      |
+                      span(class="heading-brand-name") 
+                        | #{ThemeName}
+
+                    p(class="hero-subtitle"  data-splitting)
+                        . 
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed
+                            architecto dolorum inventore amet dolorum
+                            adipisicing lorem inventore ipsum dolor sit.
+                           
+                    div(class="cta-links-area d-flex align-items-center justify-content-center justify-content-lg-start wow  fadeInUp" data-wow-delay="1s")
+                      +add_play_btn_row_dir('watch our video','start')
+
+                //End of .hero-text-area
+            div(class="col-12 col-lg-1")
+                //for align adjustments only
+            //
+            //
+
+            //start of hero-form
+            div(class="col-12 col-lg-5 ")
+              div(class="lead-generation-area  wow fadeInRight " data-wow-delay="0.4s")
+                div(class="main-form-wraper")  
+
+                  form(class="main-form multi-field-form")
+                    h4(class="form-heading") subscrib to get  
+                      span(class="highlite") 30 days
+                      |  of free access
+                    
+                    -var obj={inputId: "user-name", inputName: "user_name", inputClassList: "text-input", inputType: "text" , lblText:"your Name", isRequired:true }
+                    +add_input(obj)
+                    
+                    -var obj={inputId: "user-phone",inputName: "user_phone",inputClassList: "text-input",inputType: "text" ,lblText:"phone No.", isRequired:false }
+                    +add_input(obj)
+
+                    -var obj={inputId: "user-email",inputName: "user_email",inputClassList: "text-input",inputType: "email" ,lblText:"E-mail", isRequired:true }
+                    +add_input(obj)
+
+                    -var obj={submitBtnId: "submit-btn",submitBtnName: "UserSubmit",submitBtnClassList: " ma-btn-primary subscribe-btn",submitBtnType: "submit", submitBtnText: "subscribe now"}
+                    +add_submit_btn(obj)
+
+                    p(class="done-msg") 
+
+                  

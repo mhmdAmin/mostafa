@@ -1,0 +1,18 @@
+section(id="portfolio" class="portfolio portfolio-squared-no-gaps mega-section section-bg-shade  ")
+
+  //- div(class="overlay-image-bg")
+  div(class="container")
+    -var sec_title_text="a portfolio of our work"
+    -var sec_sub_title_text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, architecto cupiditate odio rerum est"
+    +add_on_center_section_heading(sec_title_text,sec_sub_title_text)
+      
+    
+    include _portfolio-layout.pug
+      
+      
+    //Start .see-more-area
+    div(class=" see-more-area   wow fadeInUp" data-wow-delay="0s") 
+      a(href="#0" class=" ma-btn-primary ") see our portfolio
+    //End .see-more-area
+  
+

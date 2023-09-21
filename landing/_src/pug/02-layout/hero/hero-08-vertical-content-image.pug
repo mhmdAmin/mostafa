@@ -1,0 +1,41 @@
+section( id="page-hero" class="d-flex  page-hero page-hero_vertical-content")
+    div(class="overlay-shape-image-bg")
+    div(class="overlay-color ")
+
+    include ../../04-components/bg-shapes.pug
+    div(class="container")
+        div(class="row d-flex ")
+            
+            div(class="col-12   mx-auto col-lg-8 mb-5 text-center ")
+                //Start of .hero-text-area
+                div(class="hero-text-area   wow  fadeInLeft " data-wow-delay="0.4s")
+                    h1( class="hero-title "  data-splitting) boost your business with 
+                        |
+                        |  
+                        span(class="heading-brand-name") 
+                            | #{ThemeName}
+                    p(class="hero-subtitle narrow-centerd-text"  data-splitting) Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia assumenda maiores explicabo asperiores quam eligendi officiis corporis placeat facere commodi!
+                   
+                    div(class="cta-links-area")
+                        a(href="#0" class=" ma-btn-primary cta-link ") Start now
+            //End of .hero-text-area
+
+            //Start of hero-image
+            div( class="col-12   mx-md-auto col-lg-8  text-center" )   
+                div( class="hero-image-area bottom-one-col-img wow fadeInRight " data-wow-delay="0.4s")
+                    div(class="hero-img-wraper ")
+
+                      img(src=hero_illustration_3 class="img-fluid" alt="hero illustration")
+                     
+                        
+            //End of hero-image
+            
+            
+
+
+
+
+        //End Of .row 
+    //End Of .container
+
+    include ../../04-components/shape-divider-1.pug

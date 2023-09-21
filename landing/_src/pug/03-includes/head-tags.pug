@@ -1,0 +1,43 @@
+ 
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width, initial-scale=1.0")
+meta(http-equiv="X-UA-Compatible", content="ie=edge")
+-
+ 
+  var fontLink = undefiend
+
+  if (pageDir === "ltr")
+    //-english Font
+    fontLink="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900"
+
+  else if (pageDir === "rtl")
+    //- Arabic Font
+    fontLink="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap"
+  else
+    fontLink="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,800"
+
+  //-FavIcon consts
+  var faveIcon=["fav icon","icon","assets/images/fav-icon/fav-icon.png"]
+
+  //- vendors style files consts
+  var bootstrap=["bootstarp","stylesheet","css/vendors/bootstrap.min.css"]
+  var FancyBox=["Fancybox","stylesheet","css/vendors/jquery.fancybox.min.css"]
+  var animate =["animate.css file","stylesheet","css/vendors/animate.css"]
+  var swiper=["Swiper","stylesheet","css/vendors/swiper.min.css"]
+  var vegas=["vegas","stylesheet","css/vendors/vegas.min.css"]
+  var fontAwesome=["fontAwesome","stylesheet","css/vendors/all.min.css"]
+  var splitting=["Splitting","stylesheet","css/vendors/splitting.css"]
+  var fullPage=["Fullpage","stylesheet","css/vendors/jquery.fullpage.min.css"]
+  var fontFamily=["Font Family","stylesheet", fontLink ]
+  //-main Custome styles
+  var styles_LTR=["styles-LTR","stylesheet","css/styles-LTR.css"]
+  var styles_RTL=["styles-RTL","stylesheet","css/styles-RTL.css"]
+
+
+  //-mixin to add styles dynamicly to the html file
+mixin addStyles(...styles)
+  each val in styles
+    |
+    |
+    <!-- #{val[0]} -->
+    link(rel = val[1] , href = val[2])

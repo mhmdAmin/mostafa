@@ -1,0 +1,131 @@
+
+include ../0-configs/direction_LTR.pug
+include ../01-globals/variables.pug
+include ../01-globals/mixins.pug
+
+-
+  //- this var used to define the type of current page
+  var page_type = home_page_type
+
+  
+  //- This var used display the title of the page 
+  var pageTitle = "Home"  
+
+
+  
+  //- this var to make put the right links of the blog and single post according to the theme-color of the caller page
+  //- if (caller page IS Dark version ) THEN  Call the blog dark version
+  //- if (caller page IS light version ) THEN  Call the blog light version
+
+  var pageTheme="dark"  
+
+  
+
+doctype html
+html(lang="zxx" )
+  head
+    include ../03-includes/head-tags
+    +addStyles(faveIcon,
+               bootstrap,
+               FancyBox,
+               animate,
+               swiper,
+               fontAwesome,
+               splitting,
+               fontFamily,
+              styles_LTR
+              )
+    title #{pageTitle}
+
+
+  body(class= " dark-theme  landing-page-demo overlay-is-linear-gradient rounded-btns"  )   
+
+    //Start Page Header
+    +add_dark_landing-page_header("page-header menu-on-end ")
+    //End Page Header
+
+
+    // Start  Page hero
+    include ../02-layout/hero/hero-01-slider.pug
+    // End  Page hero
+
+
+    // Start  services Section
+    include ../02-layout/services/services_img-icon_center-aligned_3_col.pug
+    // End  services Section
+   
+   
+    // Start  about Section
+    //- include ../02-layout/about/about_2_item_wide_photo.pug
+    include ../02-layout/about/about_2_item_photo.pug
+    // End  about Section
+
+    // Start  portfolio Section
+    include ../02-layout/portfolio/portfolio-squared-with-gaps.pug
+    // End  portfolio Section
+
+    // Start  our-video Section
+    include ../02-layout/our-video.pug 
+    // End  our-video Section
+
+
+    // Start  our-team Section
+    include ../02-layout/our-team.pug
+    // End  our-team Section
+
+    // Start  pricing Section
+    include ../02-layout/pricing/pricing-4.pug
+    // End  pricing Section
+
+
+   
+
+    // Start  our-clients Section
+    include ../02-layout/our-clients/our-clients-white-logos-no-heading.pug
+    // End  our-clients Section
+
+
+    
+    // Start  testimonials Section
+    include ../02-layout/testimonials/testimonials-3-col.pug
+    // End  testimonials Section
+
+
+    // Start  faq Section
+    include ../02-layout/faq/faq-illustration.pug
+    // End  faq Section
+
+
+
+    // Start  contact-us Section
+    include ../02-layout/contact-us/contact-us.pug
+    // End  contact-us Section
+
+
+    // Start  page-footer Section
+    +add_page_footer("page-footer dark-color-footer")
+    // End  page-footer Section
+
+
+
+    // Start loading-screen Component
+    include ../04-components/loading-screen.pug
+    // End loading-screen Component
+
+    // Start back-to-top Component
+    include ../04-components/back-to-top.pug
+    // End back-to-top Component
+
+
+    //- Include JS Scripts
+    include ../03-includes/scripts.pug
+    +pageScripts(jquery,
+                 bootStarp,
+                 fancyBox,
+                 countTo,
+                 wow,
+                 swiperJs,
+                 isotope,
+                 splittingJs,
+                 main
+                 )

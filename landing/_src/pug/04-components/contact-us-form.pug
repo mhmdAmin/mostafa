@@ -1,0 +1,34 @@
+//Form To have user messages
+div(class="main-form-wraper")  
+  form( id="contact-us-form" class="main-form" method ="post" action="php/send-mail.php" autocomplete="off")
+    div(class="row ")
+      
+      
+      div(class="col-12 col-lg-6")
+        -var obj={inputId: "user-name",inputName: "UserName",inputClassList: "text-input",inputType: "text",lblText:"Name",isRequired:true }
+        +add_input(obj)                  
+
+
+      div(class="col-12 col-lg-6")
+        -var obj={inputId: "user-email",inputName: "UserEmail",inputClassList: "text-input",inputType: "email",lblText:"E-mail" ,isRequired:true }
+        +add_input(obj)
+
+      div(class="col-12 ")
+        -var obj={inputId: "msg-subject",inputName: "subject",inputClassList: "text-input",inputType: "text",lblText:"Subject" ,isRequired:true}
+        +add_input(obj)  
+
+
+      div(class="col-12 ")
+        -var obj={textareaId:"msg-text", textareaName: "message",textareaClassList: " text-input",lblText:"your message",isRequired:true }
+        +add_textarea(obj)
+
+
+
+
+
+      div(class="col-6 submit-wraper")
+        -var obj={submitBtnId: "submit-btn",submitBtnName: "UserSubmit",submitBtnClassList: " ma-btn-primary",submitBtnType: "submit", submitBtnText: "Send your message"}
+        +add_submit_btn(obj)
+
+      div(class="col-6 ")
+        p(class="done-msg") 

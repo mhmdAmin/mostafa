@@ -1,0 +1,10 @@
+-var section_id = (page_type == home_page_type) ? "testimonials": "testimonials-1-col"
+
+
+section(id=section_id class="testimonials testimonials-1-col d-flex align-items-center mega-section  ")
+  div(class="container")
+    -var sec_title_text="testimonials"
+    -var sec_sub_title_text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, architecto cupiditate odio rerum est"
+    +add_on_center_section_heading(sec_title_text,sec_sub_title_text)
+    
+    include testimonials-slides.pug

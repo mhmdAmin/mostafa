@@ -1,0 +1,11 @@
+include _faq_VARS.pug
+
+//Start Accordion List For FAQ
+if faq_parent_data.has_wow_anim
+  div(id = faq_parent_data.faq_parent_container_ID   class=`faq-accordion ${faq_parent_data.wow_anim_classList}`   data-wow-delay= faq_parent_data.wow_data_delay)
+    - var faq_data=[faq_data_1, faq_data_2, faq_data_3,faq_data_4]
+    +add_faq(faq_data)
+else     
+  div(id = faq_parent_data.faq_parent_container_ID   class=`faq-accordion `)
+    - var faq_data=[faq_data_1, faq_data_2, faq_data_3,faq_data_4]
+    +add_faq(faq_data)

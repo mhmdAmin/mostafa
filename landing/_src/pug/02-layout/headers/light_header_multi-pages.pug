@@ -1,0 +1,28 @@
+header(id="page-header" class= multi_pages_header_ClassList   )
+
+	//start navbar
+	div(class="container-fluid")
+		//- div(class="nav-group")
+		//- 	nav(class="top-nav")
+		//- 		div(class="start-dir-menu")
+
+		//- 		div(class="end-dir-menu")
+		nav(class="main-navbar " id="main-nav")
+			//- adding navbar-brand
+			a(class="navbar-brand " href="#")
+				img(src=logo_light class="brand-logo light-logo img-fluid " alt="")
+				img(src=logo_dark class="brand-logo dark-logo img-fluid " alt="")
+
+			//- adding menu-toggler-btn (Hamburger menu)
+			include _menu-toggler-btn.pug
+
+			//- adding navbar links
+			include _light_multipages-navbar-links_VARS.pug
+			- var nav_links_arr = [home, aboutUs, portfolio, blog, pricing, otherPages ];
+			+add_navbar_links(nav_links_arr)
+
+			a(href="#0" class="header-cta  ma-btn-primary ") Subscribe
+
+						
+	//End navbar
+

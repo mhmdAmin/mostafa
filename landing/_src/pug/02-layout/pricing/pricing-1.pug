@@ -1,0 +1,22 @@
+- var section_id = (page_type == home_page_type) ? "pricing": "pricing-1"
+
+
+section(id= section_id class="pricing-1 mega-section section-bg-shade")
+  div(class="container")
+    -var sec_title_text="Pricing"
+    -var sec_sub_title_text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, architecto cupiditate odio rerum est"
+    +add_on_center_section_heading(sec_title_text,sec_sub_title_text)
+    
+    div(class="ma-tabs")
+      div(class="switch wow fadeInUp " data-wow-delay="0")
+        ul(class="switch-btns-list")
+         
+          li(class=" switch-btn switch-left   active" data-target=".monthly-plan") monthly
+          li(class=" switch-btn switch-right  " data-target=".yearly-plan") yearly
+          
+      div(class="tabs")
+
+        include pricing-plans/pricing-1-monthly-plans.pug 
+        include pricing-plans/pricing-1-yearly-plans.pug
+
+

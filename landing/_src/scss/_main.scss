@@ -1,0 +1,103 @@
+/*===
+/*===================================================
+Project:   Forsa - Landingpage
+Auther: Mohamed Amin [AminThemes]
+Auther-URI:https://www.templatemonster.com/authors/aminthemes/
+Version:    1.0
+Created:   21 Dec 2022
+Template Description:    multipurpose HTML5 landing pages Templates
+====================================================*/
+
+/**
+========================= 
+      TABLE OF CONTENT
+========================= 
+- global-rules and helper classes
+- page-header
+- page-hero section
+- services-section
+- about section
+- portfolio section
+- our-video section
+- our-team section
+- pricing section
+- our-clients section
+- faq section
+- testimonials section
+- contact-us section
+- page-footer section
+- Coloring classes 
+- Dark Theme Rules
+===*/
+
+/* 01- start global, helper classes , Components Rules*/
+@import "1-helpers/_variables";
+@import "1-helpers/_mixins";
+@import "1-helpers/_globals";
+@import "1-helpers/_custom-animations";
+
+@import "2-components/_buttons";
+@import "2-components/_social-icons";
+@import "2-components/_back-to-top";
+@import "2-components/_loading-screen";
+/*ُ 01- End global, helper classes , components Rules */
+
+/*02- Start .page-header Rules    */
+@import "3-layout/_page-header";
+/*02- End .page-header Rules    */
+
+/*  03- Start .page-hero Rules   */
+@import "3-layout/_page-hero";
+/*  03- End .page-hero Rules   */
+
+/*   04- Start .services Section Rules    */
+@import "3-layout/_services";
+/*   04- End .services Section Rules   */
+
+/*  06- Start about Section   */
+@import "3-layout/_about";
+/*  06- End about Section    */
+
+/*   07- Start portfolio Section  */
+@import "3-layout/_portfolio";
+/*   07- End portfolio Section  */
+
+/*   09- Start our-video Section  */
+@import "3-layout/_our-video";
+/*   09- End our-video Section  */
+
+/*  10- Start our-team Section   */
+@import "3-layout/_our-team";
+/*  10- End our-team Section   */
+
+/*  11- Start pricing Section  */
+@import "3-layout/_pricing";
+/*  11- End pricing Section   */
+
+/*  12- Start our-clients Section   */
+@import "3-layout/_our-clients";
+/*  12- End our-clients Section   */
+
+/*  13- Start faq Section   */
+@import "3-layout/_faq";
+/*  13- End faq Section  */
+
+/*  14- Start testimonials Section   */
+@import "3-layout/_testimonials";
+/*  14- End testimonials Section   */
+
+/*   15- Start contact-us Section  */
+@import "3-layout/_contact-us";
+/*   15- End contact-us Section  */
+
+/*   17- Start page-footer Section  */
+@import "3-layout/_page-footer";
+/*   17- End page-footer Section  */
+
+/*   23- Start coloring classes  */
+@import "1-helpers/_coloring-classes";
+/*   23- End coloring classes  */
+
+/*   24- Start dark theme rules  */
+@import "1-helpers/_dark-theme";
+/*   24- End dark theme rules  */

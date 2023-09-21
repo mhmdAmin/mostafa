@@ -1,0 +1,248 @@
+.page-footer {
+  padding-top: 4rem;
+  position: relative;
+}
+
+.footer-cols {
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.footer-col {
+  margin-bottom: 1.5rem;
+}
+
+.footer-col-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+  color: $extra-dark-grey-color;
+}
+
+.footer-text-about-us {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.75;
+  padding-#{$end-direction}: 1rem;
+  margin-bottom: 1.25rem;
+  color: ($dark-grey-color);
+}
+
+.sc-wraper {
+  padding: 0;
+}
+
+.contact-info-card {
+  font-weight: 600;
+  padding: 0;
+  padding-bottom: 1rem;
+  border-radius: 0.5rem;
+  @include ma-transition(all, 0.3s);
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
+
+  .icon {
+    font-size: 1.25rem;
+    width: 1.5rem;
+    text-align: center;
+    margin-#{$end-direction}: 0.5rem;
+    vertical-align: middle;
+    color: $main-color;
+  }
+
+  .info {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: ($dark-grey-color);
+    display: inline-block;
+    @include ma-transition(all, 0.25s);
+
+    &:hover {
+      color: $main-color;
+      transform: translateX(0.25rem * $x-axe-direction);
+    }
+  }
+}
+
+.footer-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  &-item {
+    display: block;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+
+  &-link {
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: $semi-dark-grey-color;
+    display: inline-block;
+    @include ma-transition(all, 0.25s);
+
+    &:hover {
+      color: $main-color;
+      text-decoration: none;
+      transform: translateX(0.25rem * $x-axe-direction);
+    }
+  }
+}
+
+.copyrights {
+  padding: 0.5rem 0;
+  overflow: hidden;
+
+  .creadits {
+    text-align: #{$start-direction};
+    font-weight: 600;
+    margin: 0;
+    font-size: 0.85rem;
+    color: ($dark-grey-color);
+
+    .link {
+      font-weight: 600;
+      color: $main-color;
+      text-decoration: none;
+    }
+  }
+
+  .terms-links {
+    text-align: #{$end-direction};
+
+    & > a {
+      text-decoration: none !important;
+      font-weight: 600;
+      @include ma-transition();
+      color: ($dark-grey-color);
+      text-decoration: none;
+    }
+  }
+}
+
+.dark-color-footer {
+  background-color: $extra-dark-grey-color;
+
+  .footer-col-title,
+  .contact-info-card .icon,
+  .sc-wraper .sc-list .sc-item:hover .sc-icon,
+  .terms-links,
+  .copyrights .creadits .link,
+  .terms-links > a:hover {
+    color: $main-color;
+  }
+
+  .footer-text-about-us,
+  .contact-info-card .info,
+  .contact-info-card .info:hover,
+  .footer-menu .footer-menu-link,
+  .copyrights .creadits,
+  .terms-links > a {
+    color: $grey-color;
+  }
+
+  .contact-info-card .info:hover,
+  .footer-menu .footer-menu-link:hover,
+  .copyrights .creadits .link {
+    color: $white-color;
+  }
+}
+
+.light-color-footer {
+  background-color: $grey-color;
+
+  .footer-col-title,
+  .contact-info-card .icon,
+  .terms-links,
+  .copyrights .creadits .link,
+  .sc-wraper .sc-list .sc-item:hover .sc-icon {
+    color: $main-color;
+  }
+
+  .footer-text-about-us,
+  .contact-info-card .info,
+  .footer-menu .footer-menu-link,
+  .copyrights .creadits,
+  .terms-links > a {
+    color: $dark-grey-color;
+  }
+
+  .contact-info-card .info:hover,
+  .footer-menu .footer-menu-link:hover,
+  .terms-links > a:hover {
+    color: $extra-dark-grey-color;
+  }
+}
+
+.main-color-footer {
+  background-color: $main-color;
+  border-top: 2px solid $white-color;
+
+  .copyrights {
+    border-color: $grey-color;
+  }
+
+  .sc-wraper .sc-list .sc-item:hover .sc-icon {
+    color: $main-color;
+  }
+
+  .contact-info-card .icon,
+  .terms-links,
+  .copyrights .creadits .link {
+    color: $grey-color;
+  }
+
+  .footer-col-title,
+  .footer-text-about-us,
+  .contact-info-card .info,
+  .footer-menu .footer-menu-link,
+  .copyrights .creadits,
+  .terms-links > a {
+    color: $grey-color;
+  }
+
+  .contact-info-card .info:hover,
+  .footer-menu .footer-menu-link:hover,
+  .terms-links > a:hover {
+    color: $white-color;
+  }
+}
+
+.index-page-footer {
+  padding: 20px 0;
+  text-align: center;
+  border-top: 2px solid rgba($main-color, 0.5);
+
+  .footer-brand {
+    text-decoration: none;
+    display: inline-block;
+    padding-bottom: 1rem;
+    width: auto;
+
+    img {
+      width: 120px;
+    }
+  }
+
+  .copyrights {
+    text-transform: capitalize;
+    display: block;
+    text-align: center;
+    color: $main-color;
+
+    font: {
+      size: 0.8rem;
+      weight: 500;
+    }
+
+    margin: 0;
+  }
+}

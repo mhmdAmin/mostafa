@@ -1,0 +1,76 @@
+section( id="services" class= "services mega-section section-bg-shade")
+
+  //-include ../../04-components/section-bg-shapes.pug
+
+
+  div( class="container")
+    -var sec_title_text="awesome services"
+    -var sec_sub_title_text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, architecto cupiditate odio rerum est"
+    +add_on_center_section_heading(sec_title_text,sec_sub_title_text)
+
+              
+    div(class="row services-row")   
+        //Start First service box
+        div(class="col-12 col-md-6  col-lg-3 mx-auto")
+            div( class="service-box  wow fadeInUp" data-wow-delay="0.2s")
+                div(class="service-icon")
+                    img(src=feat_img_1 class="img-icon" alt="service image 1" draggable="false")
+                div( class="service-content")
+                    h3(class="service-title") Creative Solutions
+                    p(class="service-text")
+                        . 
+                            Lorem ipsum dolor sit amet consecltetur adipisicing elit. Omnis tempore
+                            perferendis
+                            explicabo.
+        // End First service box                    
+        //Start Second service box
+
+
+
+        div(class="col-12 col-md-6  col-lg-3 mx-auto")
+            div( class="service-box  wow fadeInUp" data-wow-delay="0.4s")
+                div(class="service-icon")
+                    img(src=feat_img_2 class="img-icon"  alt="service image 2"  draggable="false")
+                div( class="service-content")
+                    h3(class="service-title") Solid Development
+                    p(class="service-text")
+                        . 
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tempore
+                            perferendis
+                            explicabo.
+
+        // End Second service box
+
+        //Start Third service box
+        div(class="col-12 col-md-6  col-lg-3 mx-auto")
+            div( class="service-box  wow fadeInUp" data-wow-delay="0.6s")
+                div(class="service-icon")
+                    img(src=feat_img_3 class="img-icon"  alt="service image 3" draggable="false")
+                div( class="service-content")
+                    h3(class="service-title") awesome Designs
+                    p(class="service-text")
+                        . 
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tempore
+                            perferendis
+                            explicabo.
+        // End Third service box
+
+        //Start fourth service box
+        div(class="col-12 col-md-6  col-lg-3 mx-auto")
+            div( class="service-box  wow fadeInUp" data-wow-delay="0.8s")
+                div(class="service-icon")
+                    img(src=feat_img_4 class="img-icon"  alt="service image 4" draggable="false")
+                div( class="service-content")
+                    h3(class="service-title") great support
+                    p(class="service-text")
+                        . 
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tempore
+                            perferendis
+                            explicabo.
+        // End fourth service box
+        
+    
+    //Start .see-more-area
+    div(class=" see-more-area wow fadeInUp" data-wow-delay="0.8s")
+        a(href="#0" class=" ma-btn-primary ") see all services
+    //End Of .see-more-area 

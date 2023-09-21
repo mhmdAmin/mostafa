@@ -1,0 +1,113 @@
+div(class="portfolio-wraper  wow fadeIn"  data-wow-delay="0s")
+  //- div(class="portfolio-wraper " )
+  //- when you want to add a new photo please be sure of that:
+    1- add an <li> item in same structure below inside the to the .filter-btn-list ul
+    2- add the photo in the same strcture below inside the .filter-group div.
+    3- set the data-filter value in the <li> item to the same class-name you will give to the <img> item you will add PREFIXED by dot symbol [.]
+  //- 
+  //a menu of links to show the photos users needs   
+  ul(class="portfolio-btn-list ")
+    li(class="portfolio-btn active " data-filter="*") all
+    li(class="portfolio-btn        " data-filter=".programming") programming
+    li(class="portfolio-btn        " data-filter=".consulting") consulting
+    li(class="portfolio-btn        " data-filter=".mobile") mobile app
+    li(class="portfolio-btn        " data-filter=".blog") blog
+  //-the photos that will be filtered by the user you can add much more photo
+    [be sure when adding a new photo to give it a class name that suits 
+    the group will photo group {like 'programming' 'mobile' 'blog' in example below} ]
+  div(class="portfolio-group " )
+    div(class="row g-0")
+      
+      div(class="col-12  col-sm-6  col-lg-4  portfolio-item programming")
+        div(class="item")
+          a(href=portfolio_img_1 data-fancybox=".filter" class="portfolio-img-link ")
+            div(class="overlay overlay-color")
+            img( src=portfolio_img_1  alt="portfolio item photo" class="portfolio-img  img-fluid "  )
+            i(class="fas fa-search icon")
+
+          div( class="item-info ")
+              span(class="info-title") programming   
+              ul(class="tags-list")
+                li(class="tag-item") 
+                 a(href="#" class="tag-link") c#
+                li(class="tag-item") 
+                 a(href="#" class="tag-link") Java 
+
+      div(class="col-12  col-sm-6  col-lg-4  portfolio-item blog")
+        div(class="item")
+          a(href=portfolio_img_2 data-fancybox=".filter" class="portfolio-img-link ")
+            div(class="overlay overlay-color")
+            img( src=portfolio_img_2  alt="portfolio item photo" class="portfolio-img  img-fluid "  )
+            i(class="fas fa-search icon")
+ 
+          div( class="item-info ")
+              span(class="info-title") blog   
+              ul(class="tags-list")
+                li(class="tag-item") 
+                 a(href="#" class="tag-link") wordpress
+                li(class="tag-item") 
+                 a(href="#" class="tag-link") bloger  
+
+
+      div(class="col-12  col-sm-6  col-lg-4  portfolio-item programming")
+        div(class="item")
+          a(href=portfolio_img_3 data-fancybox=".filter" class="portfolio-img-link ")
+            div(class="overlay overlay-color")
+            img( src=portfolio_img_3  alt="portfolio item photo" class="portfolio-img  img-fluid "  )
+            i(class="fas fa-search icon")
+          
+          div( class="item-info ")
+              span(class="info-title") programming  
+              ul(class="tags-list")
+                li(class="tag-item") 
+                 a(href="#" class="tag-link") c++
+                li(class="tag-item") 
+                 a(href="#" class="tag-link") ruby  
+
+      div(class="col-12  col-sm-6  col-lg-4  portfolio-item consulting")
+        div(class="item")
+          a(href=portfolio_img_4 data-fancybox=".filter" class="portfolio-img-link ")
+            div(class="overlay overlay-color")
+            img( src=portfolio_img_4  alt="portfolio item photo" class="portfolio-img  img-fluid "  )
+            i(class="fas fa-search icon")
+          
+          div( class="item-info ")
+              span(class="info-title") consulting
+              ul(class="tags-list")
+                li(class="tag-item") 
+                 a(href="#" class="tag-link") law
+                li(class="tag-item") 
+                 a(href="#" class="tag-link") finance
+
+
+      div(class="col-12  col-sm-6  col-lg-4  portfolio-item blog")
+        div(class="item")
+          a(href=portfolio_img_5 data-fancybox=".filter" class="portfolio-img-link ")
+            div(class="overlay overlay-color")
+            img( src=portfolio_img_5  alt="portfolio item photo" class="portfolio-img  img-fluid "  )
+            i(class="fas fa-search icon")
+
+          div( class="item-info ")
+              span(class="info-title") blog
+              ul(class="tags-list")
+                li(class="tag-item") 
+                 a(href="#" class="tag-link") wordpress
+            
+
+
+      div(class="col-12  col-sm-6  col-lg-4  portfolio-item mobile")
+        div(class="item")
+          a(href=portfolio_img_6 data-fancybox=".filter" class="portfolio-img-link ")
+            div(class="overlay overlay-color")
+            img( src=portfolio_img_6  alt="portfolio item photo" class="portfolio-img  img-fluid "  )
+            i(class="fas fa-search icon")
+         
+          div( class="item-info ")
+              span(class="info-title") mobile
+              ul(class="tags-list")
+                li(class="tag-item") 
+                 a(href="#" class="tag-link") samsung
+                li(class="tag-item") 
+                 a(href="#" class="tag-link") oppo 
+
+  

@@ -1,0 +1,19 @@
+header(id="page-header" class= index_page_header_ClassList )
+  //start navbar
+  div(class="container")
+    nav(class="  main-navbar " id="main-nav")
+      //- adding navbar-brand
+      a(class="navbar-brand " href="#")
+          img(src=index_page_logo_light class="brand-logo light-logo img-fluid " alt="")
+          img(src=index_page_logo_dark  class="brand-logo dark-logo img-fluid " alt="")
+
+      //- adding menu-toggler-btn (Hamburger menu)
+      include _menu-toggler-btn.pug
+              
+      //- adding navbar links
+      include _index-page-navbar-links_VARS.pug
+      - var nav_links_arr = [landingpage];
+      +add_navbar_links(nav_links_arr)
+
+                    
+    //End navbar

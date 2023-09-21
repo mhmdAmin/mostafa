@@ -1,0 +1,85 @@
+.our-team {
+  .tm-member-card {
+    position: relative;
+    border-radius: 0.5rem 0.5rem 0 0;
+    overflow: hidden;
+
+    margin-bottom: 3rem;
+    text-align: center;
+    @include ma-transition();
+    @include ma-box-shadow(1, 1, 10, 0, rgba($black-color, 0.1));
+
+    &:hover {
+      @include ma-box-shadow(1, 1, 10, 5, rgba($black-color, 0.1));
+
+      .tm-image {
+        & > img {
+          transform: scale(1.05);
+          transform-origin: center;
+        }
+
+        .overlay-color {
+          opacity: $overlay-color-opacity-val-50;
+        }
+
+        .tm-desc {
+          visibility: visible;
+          opacity: 1;
+          bottom: 0;
+        }
+      }
+    }
+
+    .tm-image {
+      position: relative;
+      overflow: hidden;
+      @include ma-transition();
+
+      .overlay-color {
+        z-index: 2;
+        opacity: 0;
+        @include ma-transition();
+      }
+
+      img {
+        width: 100%;
+        @include ma-transition();
+      }
+
+      .tm-desc {
+        position: absolute;
+        height: auto;
+        width: 100%;
+        #{$start-direction}: 0;
+        bottom: -100%;
+        top: auto;
+        padding: 1rem;
+        font-size: 0.85rem;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 7;
+        @include ma-transition();
+      }
+    }
+
+    .tm-details {
+      text-align: center;
+      padding: 1rem;
+
+      .tm-name {
+        text-transform: capitalize;
+        font-size: 1.35rem;
+        font-weight: 800;
+        margin-bottom: 0;
+        color: $extra-dark-grey-color;
+      }
+
+      .tm-role {
+        text-transform: capitalize;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: $main-color;
+      }
+    }
+  }
+}

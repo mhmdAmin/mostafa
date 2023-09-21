@@ -1,0 +1,34 @@
+    
+
+-
+  
+  //-var constName=[commentMsg, script Path]
+  var jquery        =  ["JQuery"        ,"js/vendors/jquery-3.4.1.min.js"]
+  var bootStarp     =  ["bootstrap"     , "js/vendors/bootstrap.bundle.min.js"]
+  var fancyBox      =  ["fancybox"      , "js/vendors/jquery.fancybox.min.js"]
+  var countTo       =  ["countTo"       , "js/vendors/jquery.countTo.js"]
+  var wow           =  ["wow"           , "js/vendors/wow.min.js"]
+  var swiperJs      =  ["swiper"        , "js/vendors/swiper.min.js"]
+  var vegasJs       =  ["vegas"         , "js/vendors/vegas.min.js"]
+  var particles     =  ["particles"     , "js/vendors/particles.min.js"]
+  var particlesApp  =  ["particlesApp"  , "js/vendors/app.js"]
+  var isotope       =  ["isotope"       , "js/vendors/isotope-min.js"]
+  var splittingJs   =  ["Splitting"     , "js/vendors/splitting.min.js"]
+  var fullPageJs    =  ["Fullpage"      , "js/vendors/jquery.fullpage.min.js"]
+  var googleMap     =  ["Google Map"    , "js/vendors/google-map.js"]
+  var allVendors    =  ["all vendors"   , "js/vendors/all-vendors.js"]
+  var main          =  ["main"          , "js/main.js"]
+
+
+
+
+//- this mixin makes dynamic scripts in html file based on
+    the values  passed  to this mixin where it used  
+mixin pageScripts(...scripts)
+  each val in scripts
+    |
+    |
+    //-add comment before the the script tag
+    <!--     #{val[0]}     -->
+    //- add the script tag
+    script(src=val[1])

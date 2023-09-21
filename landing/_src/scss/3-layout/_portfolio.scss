@@ -1,0 +1,217 @@
+.portfolio {
+  overflow: hidden;
+  position: relative;
+
+  .portfolio-wraper {
+    overflow: hidden;
+    margin-bottom: 3rem;
+  }
+
+  .portfolio-btn-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-transform: capitalize;
+    margin-bottom: 1.25rem;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+
+    .portfolio-btn {
+      position: relative;
+      margin: 5px;
+      padding: 0.5rem 2rem;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 800;
+      z-index: 1;
+      color: $extra-dark-grey-color;
+      background: transparent;
+      cursor: pointer;
+      @include ma-transition(all, 0.3s);
+
+      &:hover,
+      &.active {
+        color: $white-color;
+        background: $main-color;
+      }
+
+      @include ma-xs-screens {
+        margin: 5px;
+        padding: 0.5rem 1rem;
+        padding-#{$start-direction}: 0;
+        min-width: auto;
+        text-align: #{$start-direction};
+        font-size: 1rem;
+        font-weight: 800;
+        color: $extra-dark-grey-color;
+
+        &:hover,
+        &.active {
+          color: $main-color;
+          background: transparent;
+        }
+      }
+    }
+  }
+
+  .portfolio-group {
+    direction: ltr; //allways  to remove littel gaps between the portfolio images
+    position: relative;
+  }
+
+  .portfolio-img-link {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    outline: none;
+    z-index: 1;
+    @include ma-transition();
+  }
+
+  .portfolio-item {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    padding: 0.25rem;
+  }
+
+  .item {
+    overflow: hidden;
+
+    .overlay-color {
+      z-index: 2;
+      opacity: 0;
+      @include ma-transition();
+    }
+
+    &:hover {
+      .item-info {
+        bottom: 20px;
+        opacity: 1;
+      }
+
+      .overlay-color {
+        opacity: $overlay-color-opacity-val-50;
+      }
+
+      .portfolio-img {
+        transform: rotate(1deg) scale(1.1);
+        transform-origin: center;
+      }
+
+      .icon {
+        pointer-events: auto;
+        opacity: 1;
+        transform: translate(-50% * $x-axe-direction, -50%) scale(1);
+      }
+    }
+
+    .portfolio-img {
+      min-width: 100%;
+      min-height: 400px;
+      object-fit: cover;
+      @include ma-transition(all, 1.5s, ease);
+    }
+
+    .item-info {
+      position: absolute;
+      #{$start-direction}: 2rem;
+      bottom: -100px;
+      margin: 0;
+      opacity: 0;
+      z-index: 5;
+      @include ma-transition(all, 0.3s);
+
+      .info-title {
+        display: block;
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-transform: capitalize;
+        color: $white-color;
+      }
+
+      .tags-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .tag-item {
+        display: inline-block;
+        margin-#{$end-direction}: 0.5rem;
+      }
+
+      .tag-link {
+        display: inline-block;
+        font-size: 0.85rem;
+        text-transform: capitalize;
+        color: $white-color;
+        text-decoration: none !important;
+      }
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background: rgba($white-color, 0.8);
+      color: $main-color;
+      font-size: 1.25rem;
+      #{$start-direction}: 50%;
+      top: 50%;
+      transform: translate(-50% * $x-axe-direction, -50%) scale(0);
+      margin: 0;
+      opacity: 0;
+      cursor: pointer;
+      pointer-events: none;
+      z-index: 5;
+      @include ma-transition(all, 0.3s);
+    }
+  }
+
+  &-rounded-with-gaps {
+    .item {
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+  }
+
+  &-squared-with-gaps {
+    .item {
+      border-radius: 0;
+      overflow: hidden;
+    }
+  }
+
+  &-squared-no-gaps {
+    .portfolio-item {
+      padding: 0;
+    }
+
+    .item {
+      border-radius: 0;
+      overflow: hidden;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    //overriding swiper rules
+    background-image: none;
+    background-size: cover;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .right-arrow,
+  .left-arrow {
+    .icon {
+      @include adding-arrows-styling;
+    }
+  }
+}

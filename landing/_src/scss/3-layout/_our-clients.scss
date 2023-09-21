@@ -1,0 +1,13 @@
+.our-clients {
+  background: $main-color;
+
+  .clients-logos {
+    text-align: center;
+  }
+
+  .logo {
+    max-height: 75px;
+
+    @include ma-transition();
+  }
+}

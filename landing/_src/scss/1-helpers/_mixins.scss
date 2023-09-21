@@ -1,0 +1,234 @@
+@mixin linear-gradient-text(
+  $deg: 45,
+  $color-stop-1: $main-color,
+  $color-stop-2: $accent-color
+) {
+  // this mixin adds linear-gradient color to the text of the element uses this mixin
+  background: -webkit-linear-gradient($deg + deg, $color-stop-1, $color-stop-2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin linear-gradient-bg(
+  $deg: 45,
+  $color-stop-1: $accent-color,
+  $color-stop-2: $main-color
+) {
+  // this mixin adds linear-gradient background to the element uses this mixin
+  //Takes 4 args to specify  the direction of the gradient in int numbers, colors of the gradient, opacity of the back ground
+  background: -webkit-linear-gradient($deg + deg, $color-stop-1, $color-stop-2);
+}
+
+@mixin solid-color-bg($bg-color: $main-color) {
+  // this mixin adds solid color background to the element uses this mixin
+  //takes 2 args with default values
+  //1- For the bg color applied to the line
+  //2- For the opacity applied to the line
+  background: $bg-color !important;
+}
+
+@mixin solid-color-text($text-color: $main-color) {
+  // this mixin adds solid color background to the element uses this mixin
+  //takes 1 args with default value
+  color: $text-color !important;
+}
+
+@mixin add-overlay {
+  //this mixin makes an overlay layer over the elment uses it
+  position: absolute;
+  #{$start-direction}: 0;
+  #{$end-direction}: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  display: block;
+  @include ma-transition;
+}
+
+@mixin ma-box-shadow($x: 0, $y: 0, $blur: 0, $spread: 0, $color: $black-color) {
+  // this mixin adds box-shadow with default values
+  box-shadow: $x + px $y + px $blur + px $spread + px $color;
+}
+
+@mixin ma-transition(
+  $prop: all,
+  $duration: 0.5s,
+  $easefunc: ease-in-out,
+  $delay: 0s
+) {
+  // this mixin adds transition  with default values
+  transition: $prop $duration $easefunc $delay;
+}
+
+@mixin ma-xl-screens {
+  //media query for +1200px screens
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin ma-lg-screens {
+  //media query form 992px to 1199px screens
+  @media (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin ma-md-screens {
+  //media query form 768px to 991px screens
+  @media (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin ma-sm-screens {
+  //media query form 576px to 767px screens
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin ma-xs-screens {
+  //media query form 0px to 575px screens
+  @media (max-width: 575px) {
+    @content;
+  }
+}
+
+@mixin lettre-spacing($space: 5px) {
+  @if $direction==ltr {
+    letter-spacing: $space;
+  }
+}
+
+@mixin adding-arrows-styling {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: $white-color;
+  background: rgba($main-color, 0.8);
+  cursor: pointer;
+  @include ma-transition(all, 0.3s);
+
+  &:hover {
+    background-color: rgba($main-color, 1);
+  }
+}
+
+@mixin adding-padding-spaces(
+  $padding-direction,
+  $start,
+  $end,
+  $step,
+  $unit: px
+) {
+  $sym: "";
+
+  @if ($padding-direction== "left") {
+    $sym: "pl";
+  } @else if($padding-direction== "right") {
+    $sym: "pr";
+  } @else if($padding-direction== "top") {
+    $sym: "pt";
+  } @else if($padding-direction== "bottom") {
+    $sym: "pb";
+  } @else if($padding-direction== "x") {
+    $sym: "px";
+  } @else if($padding-direction== "y") {
+    $sym: "py";
+  }
+
+  $i: $start;
+
+  @if ($padding-direction== "x") {
+    @while ($i <=$end) {
+      .#{$sym}-#{$i}-#{$unit} {
+        padding-left: $i + $unit !important;
+        padding-right: $i + $unit !important;
+      }
+
+      $i: $i + $step;
+    }
+  } @else if($padding-direction== "y") {
+    @while ($i <=$end) {
+      .#{$sym}-#{$i}-#{$unit} {
+        padding-top: $i + $unit !important;
+        padding-bottom: $i + $unit !important;
+      }
+
+      $i: $i + $step;
+    }
+  } @else {
+    @while ($i <=$end) {
+      .#{$sym}-#{$i}-#{$unit} {
+        padding-#{$padding-direction}: $i + $unit !important;
+      }
+
+      $i: $i + $step;
+    }
+  }
+}
+
+@mixin adding-margin-spaces($margin-direction, $start, $end, $step, $unit: px) {
+  $sym: "";
+
+  @if ($margin-direction== "left") {
+    $sym: "ml";
+  } @else if($margin-direction== "right") {
+    $sym: "mr";
+  } @else if($margin-direction== "top") {
+    $sym: "mt";
+  } @else if($margin-direction== "bottom") {
+    $sym: "mb";
+  } @else if($margin-direction== "x") {
+    $sym: "mx";
+  } @else if($margin-direction== "y") {
+    $sym: "my";
+  }
+
+  $i: $start;
+
+  @if ($margin-direction== "x") {
+    @while ($i <=$end) {
+      .#{$sym}-#{$i}-#{$unit} {
+        margin-left: $i + $unit !important;
+        margin-right: $i + $unit !important;
+      }
+
+      $i: $i + $step;
+    }
+  } @else if($margin-direction== "y") {
+    @while ($i <=$end) {
+      .#{$sym}-#{$i}-#{$unit} {
+        margin-top: $i + $unit !important;
+        margin-bottom: $i + $unit !important;
+      }
+
+      $i: $i + $step;
+    }
+  } @else {
+    @while ($i <=$end) {
+      .#{$sym}-#{$i}-#{$unit} {
+        margin-#{$margin-direction}: $i + $unit !important;
+      }
+
+      $i: $i + $step;
+    }
+  }
+}
+
+@mixin adding-auto-margins {
+  .mx-is-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .my-is-auto {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+  }
+}

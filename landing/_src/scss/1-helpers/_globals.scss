@@ -1,0 +1,464 @@
+/*========== Start Global Rules ==========*/
+
+@if $direction==ltr {
+  $fontMain: "Nunito", "sans-serif";
+} @else if $direction==rtl {
+  $fontMain: "Tajawal", "sans-serif";
+}
+
+%title-splitting-animation {
+  .char,
+  .word {
+    opacity: 0;
+    animation: fadeInUp 0.5s forwards ease-in-out;
+  }
+  .char {
+    animation-delay: calc(0.5s + (0.03s * var(--char-index)));
+  }
+  .word {
+    animation-delay: calc(0.5s + (0.08s * var(--word-index)));
+  }
+}
+
+%subtitle-splitting-animation {
+  .char,
+  .word {
+    opacity: 0;
+    animation: fadeInUp 0.5s forwards ease-in-out;
+  }
+  .char {
+    animation-delay: calc(1s + (0.001s * var(--char-index)));
+  }
+  .word {
+    animation-delay: calc(1s + (0.001s * var(--word-index)));
+  }
+}
+
+html,
+body {
+  scroll-behavior: unset !important;
+}
+body {
+  font-family: $fontMain;
+  direction: $direction; //the direction defined according to the dirction captured from the config-file used in top of the RTL-main.scss OR RTL-main.scss
+  text-align: $start-direction; //the direction definedleft OR right according to the dirction captured from the config-file used in top of the RTL-main.scss OR RTL-main.scss
+  position: relative;
+  background: $white-color;
+}
+
+section {
+  overflow: hidden;
+  position: relative;
+}
+
+.skewed-section {
+  overflow: visible;
+  position: relative;
+  margin: 2rem 0;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    #{$start-direction}: 0;
+    background: $main-color;
+    transform: translateY(-50%) skewY(-1deg);
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    top: 100%;
+  }
+}
+
+.mega-section {
+  // this class adds some global rules to the big sections
+  padding: 6rem 0;
+
+  @include ma-sm-screens {
+    padding: 4rem 0;
+  }
+}
+
+.elf-section {
+  // this class adds some global rules to the small sections
+  padding: 4rem 0;
+
+  @include ma-sm-screens {
+    padding: 3rem 0;
+  }
+}
+
+.hollow-text {
+  // inherit the stroke color from the element color
+  -webkit-text-stroke-color: inherit;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-heading {
+  // This class defines the global rules that used for heading wrapers of any section
+  margin-bottom: 3rem;
+
+  .section-title {
+    // This placeholder class defines the global rules that used for heading elments it self of any section
+    text-align: center;
+    margin-bottom: 1.25rem;
+    font-size: 3rem;
+    font-weight: 800;
+    text-transform: capitalize;
+    color: $extra-dark-grey-color;
+    line-height: 1.1;
+    letter-spacing: 2px;
+
+    &.splitting {
+      .char {
+        text-transform: initial;
+      }
+
+      .char:first-child {
+        text-transform: uppercase;
+      }
+
+      // Here We are Depending on .animated class that works in conjunction with .wow class to determine the section we want to animate its title text
+      &.animated {
+        @extend %title-splitting-animation;
+      }
+    }
+
+    @include ma-sm-screens {
+      font-size: 2rem;
+    }
+  }
+
+  .section-subtitle {
+    text-align: center;
+    margin: 0 auto;
+    width: 60%;
+    padding: 0 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: $semi-dark-grey-color;
+
+    &.splitting {
+      .char:first-child {
+        text-transform: uppercase;
+      }
+
+      // Here We are Depending on .animated class that works in conjunction with .wow class to determine the section we want to animate its subtitle text
+
+      &.animated {
+        @extend %subtitle-splitting-animation;
+      }
+    }
+
+    @include ma-md-screens {
+      width: 80%;
+    }
+
+    @include ma-sm-screens {
+      width: 100%;
+    }
+  }
+}
+
+.adding-shadow {
+  @include ma-box-shadow(1, 1, 25, 0, rgba($black-color, 0.25));
+}
+
+.parallax {
+  background-attachment: fixed !important;
+}
+
+.overlay-color {
+  @include add-overlay();
+  background: $black-color;
+  opacity: $overlay-color-opacity-val-50;
+}
+
+.overlay-image-bg {
+  @include add-overlay();
+  opacity: 0.05;
+  /*add  background-image value wherever you use this class to choose the custom image  */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.overlay-shape-image-bg {
+  @include add-overlay();
+  /*add  background-image value wherever you use this class to choose the custom image  */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.05;
+}
+
+.overlay-photo-image-bg {
+  @include add-overlay();
+  /*add  background-image value wherever you use this class to choose the custom image  */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.05;
+}
+
+%circle-shape {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.25;
+  border: 15px solid $main-color;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+
+  @include ma-md-screens {
+    width: 125px;
+    height: 125px;
+  }
+}
+
+.circle-shape-top-start {
+  @extend %circle-shape;
+  #{$start-direction}: -80px;
+  top: -80px;
+
+  @include ma-md-screens {
+    #{$start-direction}: -40px;
+    top: -40px;
+  }
+}
+
+.circle-shape-bottom-end {
+  @extend %circle-shape;
+  #{$end-direction}: -80px;
+  bottom: -80px;
+
+  @include ma-md-screens {
+    #{$end-direction}: -40px;
+    bottom: -40px;
+  }
+}
+
+%pattern-shape {
+  position: absolute;
+  background-image: url("../assets/images/patterns/dots-pattern-black.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  transform: rotate(30deg);
+  width: 200px;
+  height: 200px;
+  z-index: -1;
+
+  @include ma-md-screens {
+    width: 135px;
+    height: 135px;
+  }
+}
+
+.pattern-top-end {
+  @extend %pattern-shape;
+  top: -40px;
+  #{$end-direction}: -40px;
+}
+
+.pattern-bottom-start {
+  @extend %pattern-shape;
+  bottom: -40px;
+  #{$start-direction}: -40px;
+}
+
+%add-line {
+  //this placeholder makes a littel line used whatever you want to seprate content
+  display: block;
+  width: 20px;
+  height: 4px;
+  border-radius: 0.5rem;
+  margin: 1rem auto;
+  position: relative;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: inherit;
+    border-radius: inherit;
+  }
+  &::before {
+    #{$start-direction}: -30px;
+  }
+  &::after {
+    #{$end-direction}: -30px;
+  }
+}
+
+.line-gradient-color {
+  // this class adds a littel line after the element used it
+  @extend %add-line;
+  background-color: $main-color;
+}
+
+.line-solid-accent-color {
+  // this class adds a littel line after the element used it
+  @extend %add-line;
+  background-color: $accent-color;
+}
+
+.line-solid-main-color {
+  // this class adds a littel line after the element used it
+  @extend %add-line;
+  background-color: $main-color;
+}
+
+.line-side {
+  // this class make the line start from the side
+  margin-#{$start-direction}: 0;
+  margin-#{$end-direction}: auto;
+}
+
+/*  to enable any element that previously had the .disabled-element class.  */
+
+.enabeld-element {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/*  to disable any element and prevent the mouse action on it  */
+
+.disabled-element {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.see-more-area {
+  display: block;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.wave-shape {
+  display: block;
+  width: 100%;
+  fill: $white-color;
+}
+
+.no-borders {
+  border: none;
+  outline: none;
+}
+
+.no-box-shadow {
+  box-shadow: none !important;
+}
+
+.up-heading-span {
+  /*  To Style a Span Overover Any Heading  */
+  display: block;
+  margin-bottom: -7px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: $semi-dark-grey-color;
+}
+
+.section-shape-divider-bottom {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 120px;
+
+    path {
+      fill: $white-color;
+    }
+  }
+
+  &.fill-shade {
+    svg {
+      path {
+        fill: darken($white-color, 5%);
+      }
+    }
+  }
+}
+
+* {
+  &::selection {
+    background: $main-color;
+    color: $white-color;
+  }
+}
+
+.text-gradient-color {
+  &::selection {
+    background: $main-color;
+    color: $white-color;
+    -webkit-text-fill-color: $white-color;
+  }
+}
+
+.start-dir-img-frame {
+  background-image: linear-gradient(
+    140deg * $x-axe-direction,
+    $main-color,
+    $white-color
+  );
+
+  margin-#{$end-direction}: 1.5rem;
+  border-radius: 0.5rem;
+
+  & > img {
+    transform: translate(12px * $x-axe-direction, 12px);
+    border-radius: 0.5rem;
+  }
+}
+
+.end-dir-img-frame {
+  background-image: linear-gradient(
+    -40deg * $x-axe-direction,
+    $main-color,
+    $white-color
+  );
+
+  margin-#{$start-direction}: 1.5rem;
+  border-radius: 0.5rem;
+
+  & > img {
+    transform: translate(-12px * $x-axe-direction, -12px);
+    border-radius: 0.5rem;
+  }
+}
+
+/*========== End Global Rules ==========*/
+
+// adding-padding-spaces($padding-direction ,$start,$end,$step)
+
+// @include adding-padding-spaces("left", 10, 100, 10);
+// @include adding-padding-spaces("right", 10, 100, 10);
+// @include adding-padding-spaces("top", 10, 100, 10);
+// @include adding-padding-spaces("bottom", 10, 100, 10);
+
+// @include adding-padding-spaces("x", 10, 100, 10);
+// @include adding-padding-spaces("y", 10, 100, 10);
+
+// @include adding-margin-spaces("left", 10, 100, 10);
+// @include adding-margin-spaces("right", 10, 100, 10);
+// @include adding-margin-spaces("top", 10, 100, 10);
+// @include adding-margin-spaces("bottom", 10, 100, 10);
+
+// @include adding-margin-spaces("x", 10, 100, 10);
+// @include adding-margin-spaces("y", 10, 100, 10);
+
+// @include adding-auto-margins;

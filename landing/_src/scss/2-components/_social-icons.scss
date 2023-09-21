@@ -1,0 +1,150 @@
+/* Start Social icons list rules */
+%sc-list {
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  list-style: none;
+
+  .sc-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: $main-color;
+    @include ma-transition();
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      background: $white-color;
+      @include ma-box-shadow(0, 3, 15, 0, $transparent-black-25);
+
+      .sc-icon {
+        color: $main-color;
+      }
+    }
+  }
+
+  .sc-link {
+    //to center the icon inside the a tag verticaly
+    display: flex;
+    line-height: 1;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-decoration: none;
+  }
+
+  .sc-icon {
+    color: $white-color;
+    @include ma-transition(all, 0.3s);
+  }
+}
+
+.dir-row {
+  padding: 0.75rem 0;
+
+  .sc-list {
+    @extend %sc-list;
+
+    .sc-item {
+      margin-#{$end-direction}: 10px;
+      margin-bottom: 5px;
+
+      &:last-of-type {
+        margin-#{$end-direction}: 0;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  }
+}
+
+.dir-col {
+  padding: 0 0.75rem;
+
+  .sc-list {
+    @extend %sc-list;
+    flex-direction: column;
+
+    .sc-item {
+      margin-bottom: 10px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        transform: translateX(5px * $x-axe-direction);
+      }
+    }
+  }
+}
+
+.sc-flat {
+  .sc-list {
+    @extend %sc-list;
+
+    .sc-item {
+      font-size: 1.1rem;
+      border-radius: 0;
+      background: transparent;
+      margin-#{$end-direction}: 1rem;
+
+      &:hover {
+        background: transparent;
+        box-shadow: none;
+
+        .sc-icon {
+          color: $main-color;
+        }
+      }
+
+      .sc-icon {
+        color: $main-color;
+      }
+    }
+  }
+}
+
+// classes for social icons different sizes
+
+.sc-size-40 {
+  .sc-item {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
+.sc-size-32 {
+  .sc-item {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+}
+
+.sc-size-24 {
+  .sc-item {
+    width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
+  }
+}
+
+.sc-size-16 {
+  .sc-item {
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+  }
+}
+
+/* End Social icons list rules */

@@ -1,0 +1,272 @@
+
+
+
+
+//- add_navbar_links() is a mixin to 
+    1) Dynamicly add navbar items, links, sub-menues and icons   
+    2) dynamicly add active class to the .nav-link of the page we are in right now
+
+    Notes:
+        1) The _current_page varibale value Comes from the pageName.pug [ About.pug / services.pug etc..] to define the page name
+           so this mixsin add .active class on the nav-link item that represent this page 
+           so be sure to add this var with its value globally in the page.pug file that represent this page  
+
+        2) this mixin depend on a file that  hold the values of the links to work correctly
+            this files are:
+            1- onepage-navbar-links_VARS.pug [for landing-page demos navbar  ]
+            2- multipages-navbar-links_VARS.pug [for multi-pages demos navbar ]
+
+
+mixin add_navbar_links(linksArr)
+  div(id="navbar-menu-wraper" class=" navbar-menu-wraper  ")
+    
+    ul(class="navbar-nav  mobile-menu ")
+      each linkItem in linksArr
+       
+        if linkItem.submenu
+         
+          li(class="nav-item has-sub-menu")
+            a(href=linkItem.url, class="nav-link " + " "  +   (_current_page == linkItem.title ?   " active"   : '' )  )
+              i(class= linkItem.iconClassList )
+              = linkItem.title
+              i(class= linkItem.arrowIconClassList ) 
+           
+            //- adding first-submenu of the nav-items that has more links inside it
+            ul(class="sub-menu ")
+              each subMenu_Level_1_item in linkItem.submenu
+                //- adding the nav-item that contains the  sub-menu_2 if the item object has array submenu_2
+                if subMenu_Level_1_item.submenu_2
+                  li(class="nav-item sub-menu-item has-sub-menu")
+                    a(href="#0", class="nav-link sub-menu-link" + " "  +   (_current_page == subMenu_Level_1_item.title ?   " active"   : '' )  )
+                      i(class= subMenu_Level_1_item.iconClassList )
+                      = subMenu_Level_1_item.title
+                      i(class= subMenu_Level_1_item.arrowIconClassList )
+                    //- adding the the second sub menu 
+                    ul(class="sub-menu")
+                      each subMenu_Level_2_item in subMenu_Level_1_item.submenu_2 
+                          li(class="nav-item sub-menu-item")
+                            a(href=subMenu_Level_2_item.url, class="nav-link sub-menu-link " + " "  +   (_current_page == subMenu_Level_2_item.title ?   " active"   : '' )  )
+                              i(class= subMenu_Level_2_item.iconClassList)
+                              = subMenu_Level_2_item.title
+
+                //- adding the  nav-item that don't contains the any submenu
+                else
+                  li(class="nav-item sub-menu-item")
+                    a(href=subMenu_Level_1_item.url, class="nav-link sub-menu-link " + " "  +   (_current_page == subMenu_Level_1_item.title ?   " active"   : '' )  )
+                      i(class= subMenu_Level_1_item.iconClassList)
+                      = subMenu_Level_1_item.title
+
+                 
+        else
+          //- adding nav-items to the main navbar links menu 
+          li(class="nav-item")
+            a(href=linkItem.url, class="nav-link " + " "  +   (_current_page == linkItem.title ?   " active"   : '' )  )
+              i( class= linkItem.iconClassList )
+              = linkItem.title
+
+
+
+
+
+
+//- adding the correct arrow  according to the direction of the page
+mixin add_correct_PREV_arrow_icon()
+  if (pageDir === "ltr")
+    i(class="fas fa-arrow-left icon ")
+  else
+    i(class="fas fa-arrow-right icon ")
+
+//- adding the correct next arrow  according to the direction of the page
+mixin add_correct_NEXT_arrow_icon()
+  if (pageDir === "ltr")
+    i(class="fas fa-arrow-right icon ")
+  else
+    i(class="fas fa-arrow-left icon ")
+
+
+
+mixin add_breadcrumb()
+  nav(aria-label="breadcrumb ")
+    ul(class="breadcrumb wow fadeInUp" data-wow-delay="1s")
+      li(class="breadcrumb-item")
+        a(class="breadcrumb-link" href="#0")
+          i(class="fas fa-home icon ")
+          |home
+                
+                
+      li(class="breadcrumb-item active") #{_current_page}
+
+
+
+//- mixin to add a social icons list 
+
+- var facebook=    { url:"#0", icon_class_list:"fab fa-facebook-f sc-icon",title:"Facebook" }
+- var youtube =    { url:"#0", icon_class_list:"fab fa-youtube sc-icon",title:"youtube" }
+- var instagram=   { url:"#0", icon_class_list:"fab fa-instagram sc-icon",title:"instagram" }
+- var twitter=     { url:"#0", icon_class_list:"fab fa-twitter sc-icon",title:"twitter" }
+- var print=       { url:"#0", icon_class_list:"fas fa-print sc-icon",title:"print" }
+
+- var social_icons_list=[facebook, youtube, instagram, twitter]
+
+mixin add_social_icons_list( custom_classList="" )
+
+  div(class="sc-wraper " + custom_classList)
+    ul(class="sc-list")
+      each item in social_icons_list
+        li(class="sc-item" title=item.title)
+          a(href=item.url class="sc-link")
+            i(class=item.icon_class_list)
+
+
+mixin add_play_btn_col_dir(playBtnText='' )
+  div(class="play-btn-col-dir")
+    a(href= videoLink class= "video-link" role="button" data-fancybox)
+      div(class="play-video-btn")
+        div(class="play-btn") 
+            img(src = playBtn alt="" class="img-fluid play-icon")
+        div(class="play-btn-text") #{playBtnText}
+
+
+mixin add_play_btn_row_dir(playBtnText='')
+  div(class="play-btn-row-dir")
+    a(href= videoLink class= "video-link" role="button" data-fancybox)
+      div(class="play-video-btn")
+        div(class="play-btn") 
+            img(src = playBtn alt="" class="img-fluid play-icon")
+        div(class="play-btn-text") #{playBtnText}
+
+
+
+//- add a text input  
+-var obj={inputId: "",inputName: "",inputClassList: "",inputType: "",inputPlaceholder: "",lblClasslist:"",lblText:"",iconClassList:"",isRequired:false}
+
+mixin add_input(obj)
+  div(class="   input-wraper")
+    input(id=obj.inputId name=obj.inputName class=obj.inputClassList  type=obj.inputType placeholder=obj.inputPlaceholder)
+    label(for=obj.inputId ) 
+      = obj.lblText 
+      span(class= (obj.isRequired ? "req" : "not-req" )) *
+                 
+    span(class="b-border")
+    i(class=obj.iconClassList)
+    span(class="error-msg")
+
+
+
+//- add a text area 
+-var obj={textareaId: "",textareaName: "",textareaClassList: "",textareaCols: "",textareaRows: "",textareaPlaceholder: "",lblClasslist:"",lblText:"",iconClassList:"",isRequired:false}
+mixin add_textarea(obj)
+  div(class="   input-wraper")
+    textarea(id=obj.textareaId class=obj.textareaClassList name=obj.textareaName, cols=obj.textareaCols, rows=obj.textareaRows placeholder=obj.textareaPlaceholder)
+    label(for=obj.textareaId ) 
+      = obj.lblText 
+      span(class= (obj.isRequired ? "req" : "not-req" )) *
+                 
+    span(class="b-border")
+    i(class=obj.iconClassList)
+    span(class="error-msg") 
+
+
+
+
+//- Add a submit button
+-var obj={submitBtnId: "",submitBtnName: "",submitBtnClassList: "",submitBtnType: "",submitBtnText: ""}
+mixin add_submit_btn(obj)
+  button(id= obj.submitBtnId  class= obj.submitBtnClassList  type= obj.submitBtnType name= obj.submitBtnName)
+    = obj.submitBtnText
+
+
+//- add index-page header 
+mixin add_index-page_header(index_page_header_ClassList="")
+  include ../02-layout/headers/header_index-page.pug
+
+
+
+
+//- add light landing-page header 
+mixin add_light_landing-page_header(landing_page_header_ClassList="")
+  include ../02-layout/headers/light_header_landing-page.pug
+
+
+
+//- add light  multi-pages header
+mixin add_light_multi-pages_header(multi_pages_header_ClassList="")
+  include ../02-layout/headers/light_header_multi-pages.pug
+
+
+//- add dark landing-page header 
+mixin add_dark_landing-page_header(landing_page_header_ClassList="")
+  include ../02-layout/headers/dark_header_landing-page.pug
+
+
+
+//- add dark multi-pages header
+mixin add_dark_multi-pages_header(multi_pages_header_ClassList="")
+  include ../02-layout/headers/dark_header_multi-pages.pug
+
+
+
+//- add multi-pages header
+mixin add_page_footer(page_footer_ClassList="")
+  include ../02-layout/footer/page-footer.pug
+
+
+
+//- mixin to add tabs to the index.html page 
+mixin add_index_page_tab(pageLink="",imgSrc="",demoTitle="")
+  div(class="demo")
+    a(href=pageLink class="demo-link")
+      div(class="overlay-color")
+      i(class="fas fa-search icon")
+      img( src = imgSrc  alt="demo" class="img-fluid demo-image")
+    h6(class="demo-name") #{demoTitle}
+
+
+//- //- MIXIN TO ADD REPEATATIVE SECTION HEADING
+//- mixin add_section_heading(title_text ,sub_title_text)
+//-   div(class="section-heading ")
+//-     h2(class="section-title wow" data-splitting="chars") #{title_text}
+//-     p(class="section-subtitle wow fadeInUp" data-wow-delay=".5s") #{sub_title_text}
+//-     div(class="line-gradient-color wow fadeIn" data-wow-delay="1s")
+
+//- MIXIN TO ADD REPEATATIVE SECTION HEADING
+mixin add_on_center_section_heading(title_text ,sub_title_text)
+  div(class="section-heading center-heading")
+    h2(class="section-title wow" data-splitting="chars") #{title_text}
+    p(class="section-subtitle wow fadeInUp" data-wow-delay=".5s") #{sub_title_text}
+    div(class="line line-solid-main-color wow fadeIn" data-wow-delay="1s")
+
+//- MIXIN TO ADD REPEATATIVE SECTION HEADING
+mixin add_on_side_section_heading(title_text ,sub_title_text)
+  div(class="section-heading side-heading")
+    h2(class="section-title wow" data-splitting="chars") #{title_text}
+    p(class="section-subtitle wow fadeInUp" data-wow-delay=".5s") #{sub_title_text}
+    div(class="line line-solid-main-color wow fadeIn" data-wow-delay="1s")
+
+//- TEST THE add_section_heading MIXIN
+//- -var sec_title_text="frequently asked questions"
+//- -var sec_sub_title_text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, architecto cupiditate odio rerum est"
+//- +add_section_heading(sec_title_text,sec_sub_title_text)
+
+-let counter=1
+mixin add_faq( faq_args)
+   
+    each faq_item in faq_data
+      
+      div(class="card mb-2")
+          div(class="card-header " id= faq_item.faq_header_ID.trim() )
+            h5( class="mb-0 faq-title")
+              button(class="btn btn-link  faq-btn   "+   counter  +  ((counter > 1) ? " collapsed" : "")  
+                      data-bs-toggle="collapse" 
+                      data-bs-target="#"+ faq_item.collapse_ID.trim()
+                      aria-expanded="true" 
+                      aria-controls=faq_item.collapse_ID.trim()) #{faq_item.faq_header_text}
+                      
+          div(id=faq_item.collapse_ID.trim()  class="collapse "+   counter + ((counter === 1) ? " show":"")
+              aria-labelledby=faq_item.collapse_ID.trim() 
+              data-bs-parent="#" +(faq_item.parent_ID).trim())
+
+            div(class="card-body")
+              p(class="faq-answer") #{faq_item.faq_answer}
+      - counter++
+- conuter=null

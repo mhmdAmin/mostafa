@@ -1,0 +1,115 @@
+.testimonials {
+  .swiper-button-prev,
+  .swiper-button-next {
+    //overriding swiper rules
+    background-image: none;
+    background-size: cover;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .right-arrow,
+  .left-arrow {
+    .icon {
+      @include adding-arrows-styling;
+    }
+  }
+
+  .testimonial-content {
+    text-align: center;
+    width: 100%;
+    margin: 1rem auto;
+    padding: 4rem 0.5rem 2rem;
+    position: relative;
+    z-index: 0;
+    border-radius: 1rem 1rem 0 0;
+    border-bottom: 0.25rem solid $main-color;
+    @include ma-box-shadow(0, 0, 20, 0, rgba($black-color, 0.1));
+    background: $white-color;
+
+    @include ma-md-screens {
+      max-width: 90%;
+    }
+
+    .content {
+      padding-#{$start-direction}: 1rem;
+      padding-#{$end-direction}: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-text {
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.5;
+      font-style: italic;
+      color: $semi-dark-grey-color;
+      padding: 0;
+      margin: 0;
+
+      @include ma-md-screens {
+        font-size: 1.15rem;
+      }
+    }
+
+    .customer-info {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 4.5rem;
+        height: 4.5rem;
+        border: 3px solid $main-color;
+        border-radius: 50%;
+      }
+
+      .customer-details {
+        display: inline-block;
+        text-align: #{$start-direction};
+        margin-#{$start-direction}: 0.5rem;
+
+        .customer-name,
+        .customer-role {
+          text-transform: capitalize;
+          font-weight: 600;
+          margin-bottom: 0;
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+
+        .customer-name {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: $dark-grey-color;
+        }
+
+        .customer-role {
+          font-size: 1rem;
+          color: $main-color;
+        }
+      }
+    }
+
+    .customer-testimonial {
+      position: relative;
+    }
+
+    .icon {
+      position: absolute;
+      top: -3rem;
+      #{$start-direction}: 1.5rem;
+      #{$end-direction}: auto;
+      display: block;
+      font-size: 6rem;
+      opacity: 0.25;
+      color: $main-color;
+      transform: scaleX(-1 * $x-axe-direction);
+      z-index: -1;
+      @include ma-md-screens {
+        top: -4rem;
+        font-size: 6rem;
+      }
+    }
+  }
+}

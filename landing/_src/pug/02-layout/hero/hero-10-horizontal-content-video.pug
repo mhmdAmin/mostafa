@@ -1,0 +1,50 @@
+section( id="page-hero" class="d-flex align-items-center page-hero ")
+    div(class="overlay-shape-image-bg")
+    div(class="overlay-color ")
+
+    //- include ../../04-components/bg-shapes.pug       
+
+    div(class="container")
+        div(class="row g-0 d-flex align-items-center")
+            
+            div(class="col-12 col-lg-5")
+                //Start of .hero-text-area
+                div(class="hero-text-area mb-5 mb-lg-0  wow  fadeInLeft " data-wow-delay="0.4s")
+                    h1( class="hero-title"   data-splitting) boost your business with
+                        |
+                        |
+                        span(class="heading-brand-name") 
+                            | #{ThemeName}
+                    p(class="hero-subtitle "   data-splitting)
+                        . 
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed
+                            architecto dolorum inventore
+                            impedit ad porro nisi autem iste quidem minus. 
+                    div(class="cta-links-area")
+                        a(href="#0" class=" ma-btn-primary cta-link ") start now
+                //End of .hero-text-area
+
+
+            //for align adjustments only
+            div(class="col-12 col-lg-1")
+
+
+            //Start of hero-image
+            div( class="col-12   mx-md-auto col-lg-6 text-center" )   
+                div( class="hero-video-area  wow fadeInRight " data-wow-delay="0.4s")
+                    div(class="hero-img-wraper ")
+                        div(class="overlay-color")
+                        +add_play_btn_col_dir('watch our video','center')
+                        img(src=hero_img_4 class="img-fluid" alt="hero image")
+                        
+            //End of hero-image
+            
+            
+
+
+
+
+        //End Of .row 
+    //End Of .container
+
+    include ../../04-components/shape-divider-1.pug

@@ -1,0 +1,49 @@
+section(class="contact-info mega-section")
+  div(class="container")
+      -var sec_title_text="Our Contact Info"
+      -var sec_sub_title_text=""
+      +add_on_center_section_heading(sec_title_text,sec_sub_title_text)      
+      div(class="info-section ")
+        div(class="row ") 
+                 
+          div(class="col-12 col-md-6 col-lg-3 ")
+            div(class="info-panel wow fadeInUp" data-wow-delay=".2s")
+              i(class="fas fa-map-marker-alt icon")
+              div(class="info-content")
+                h6(class="info-title") our locations
+                p(class="info-text")
+                  .
+                    5 xyz st. elraml alexandria
+                p(class="info-text")
+                  .
+                    10 abc st. elraml alexandria
+                    
+          div(class="col-12 col-md-6 col-lg-3 ")
+            div(class="info-panel wow fadeInUp" data-wow-delay=".4s")
+              i(class="fas fa-mobile-alt icon")
+              div(class="info-content")
+                h6(class="info-title") phone numbers
+                p(class="info-text") 
+                  a(href="tel:0123456789"   class="tel link") (02) 0123456789
+                  a(href="tel:0123456789"   class="tel link") (02) 9876543210
+
+          div(class="col-12 col-md-6 col-lg-3 ")
+            div(class="info-panel wow fadeInUp" data-wow-delay=".6s")
+              i(class="fas fa-envelope icon")
+              div(class="info-content")
+                h6(class="info-title") Emails
+                p(class="info-text") 
+                  a(href="mailto:mhmdamindev@gmail.com"   class="tel link") mhmdamindev@gmail.com
+                  a(href="mailto:mhmdamin@hotmail.com"   class="tel link") mhmdamin@hotmail.com
+
+          div(class="col-12 col-md-6 col-lg-3 ")
+            div(class="info-panel wow fadeInUp" data-wow-delay=".8s")
+              i(class="fas fa-globe-africa icon")
+              div(class="info-content")
+                h6(class="info-title") website
+                p(class="info-text") 
+                  a(href="https://www.amin-agency.xyz" class="site link")  https://www.amin-agency.xyz
+
+      div(class="map-box")
+        include ../../04-components/map.pug
+

@@ -1,0 +1,183 @@
+//- الفكرة من الملف:
+//- ملف يجمع كل المحتوى النصى فى المشروع فى متغيرات ويحقنهم دخل ملفات المشروع حسب الحاجة 
+//- وحسب اتجاه الصفحة سواء عربى او انجليزى
+
+-
+  var dir = false
+  if (pageDir === "ltr")
+      dir = true 
+  else
+      dir = false 
+
+-
+  var ar_lorem=" إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم الموقع. ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً،دور مولد النص العربى أن يوفر على المصمم عناء البحث عن نص بديل لا علاقة له بالموضوع الذى يتحدث عنه التصميم فيظهر بشكل لا يليق. هذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة فلن يبدو وكأنه نص منسوخ، غير منظم، غير منسق، أو حتى غير مفهوم. لأنه مازال نصاً بديلاً ومؤقتاً."
+  var en_lorem="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error porro, impedit totam expedita maiores quasi exercitationem laboriosam, quo tenetur eius consequuntur voluptatem facilis nobis, rem rerum eos voluptates dignissimos consectetur cumque voluptas perspiciatis saepe ex quis nesciunt. Pariatur nam doloremque debitis recusandae iusto ad incidunt quisquam tenetur possimus ullam repellat asperiores dolorem corporis, earum distinctio vero! Dolorum, magni! Dolores earum consequatur ut nihil laborum dolor soluta dignissimos perspiciatis, pariatur, nemo enim aliquam eaque impedit repellendus modi numquam quas dolorem optio sit adipisci autem voluptate iure recusandae. Cumque maiores amet aliquid commodi quasi possimus, impedit ut molestias necessitatibus eligendi recusandae porro perferendis placeat mollitia atque debitis, beatae itaque maxime tempore dicta quod asperiores deleniti reiciendis ducimus? Repellendus, aliquid ea quo consectetur laudantium ut quia, modi autem qui iste quam ex placeat, atque est cum. Animi provident odio accusamus eligendi ipsam error, nemo a consequatur. Eum, in. Aliquid veritatis, ea debitis totam, qui eius, atque repudiandae magni voluptas non fugit. Doloremque perferendis maxime, ea quidem accusantium fugiat expedita nisi voluptatibus quo nobis temporibus ipsum quas aut ab nesciunt nulla dolor amet eum. Fuga, suscipit saepe nihil laudantium totam, adipisci non labore et ab atque reiciendis quisquam, dolore harum ea distinctio libero laborum nesciunt iusto iure obcaecati. Fugiat labore eaque deleniti id possimus. Maxime ipsam nulla tempore vitae accusantium, incidunt veritatis, nobis at cum voluptatem facilis totam earum, doloremque saepe accusamus blanditiis aut veniam aperiam pariatur iure placeat quisquam esse ea officiis? Dolores quia soluta voluptates voluptatibus voluptatum sint, dignissimos exercitationem! Aspernatur, voluptatum, voluptas, cumque mollitia fugiat consectetur esse quo nesciunt nostrum consequatur culpa numquam praesentium obcaecati illum dolor ullam ipsa natus nihil saepe. Perferendis nulla debitis fuga dignissimos repudiandae molestiae vel reprehenderit omnis unde, libero consequuntur distinctio numquam tempore accusamus rem voluptatum? Dolor, quam dignissimos laboriosam sapiente sit dolores! Unde a labore ea consectetur enim nam eligendi, beatae pariatur aspernatur voluptatem similique eveniet voluptate recusandae provident repudiandae nulla placeat commodi ipsum atque aut est iste? Quisquam dicta eligendi sit autem voluptates dolore at nesciunt porro velit, earum sed eaque asperiores facilis maiores explicabo molestias assumenda esse non laboriosam reprehenderit, perferendis reiciendis. Voluptatum assumenda numquam doloribus sint doloremque, ipsam voluptatem, adipisci fugit iste quibusdam possimus vitae expedita laborum provident mollitia magnam perspiciatis. Sit modi molestiae ullam inventore autem magni recusandae labore laudantium quas, possimus quos veniam error minus alias culpa impedit perferendis eius? Quaerat itaque voluptas placeat laborum voluptatum debitis ratione, veniam non nostrum temporibus adipisci praesentium quos, ipsa doloribus nesciunt hic cumque excepturi aut, beatae accusantium. Iusto delectus officiis, assumenda beatae quam reiciendis ratione quis architecto mollitia et voluptatum odio doloribus magnam, ea necessitatibus odit doloremque, soluta quos vero incidunt aliquid ad est consequuntur. Sunt corrupti aperiam tenetur? Aspernatur dolorem, saepe quis quaerat quam odio voluptatibus tempora tempore dignissimos alias eius incidunt ad, quidem vel unde labore fugiat, repudiandae ducimus sunt! Quos enim ad, eius rerum ducimus dignissimos ipsum doloremque nulla, pariatur quasi quibusdam veritatis commodi, ex eaque quo cupiditate architecto distinctio optio! Sit ipsam quisquam deleniti molestiae autem tempore perferendis exercitationem."
+
+  var text_content_block = dir ? en_lorem : ar_lorem
+
+
+-
+  function add_text_content(letters_count){
+    return  text_content_block.substr(0,letters_count)
+  }
+
+
+
+  
+  //- Start Header vars
+
+  //-  Start Top Bar vars
+  //-  End Top Bar vars
+
+
+  //-  Start Navbar logo vars
+  var _logo_title=""
+  //-  End Navbar logo vars
+
+  //- Start Navbar Links
+  var _home = dir ? "home":"الرئيسية"
+  var _about_us= dir ? "about us":"عنا"
+  var _services= dir ? "services":"المميزات"
+  var _services= dir ? "services":"الخدمات"
+  var _gallery= dir ? "gallery":"المعرض"
+  var _pricing= dir ? "pricing":"الأسعار"
+  var _testimonials= dir ? "testimonials":"قالو عنا"
+  var _contact_us= dir ? "contact us":"اتصل بنا"
+  var _projects= dir ? "projects":"المشاريع"
+  var _project_details= dir ? "project detalis":"تفاصيل مشروع"
+  var _blog_demos= dir ? "blog demos":"نماذج المدونة"
+  var _blog_home_1_col= dir ? "blog home 1 col":"رئيسية مدونة 1 عمود"
+  var _blog_home_2_col= dir ? "blog home 2 col":"رئيسية مدونة 2 عمود"
+  var _blog_home_3_col= dir ? "blog home 3 col":"رئيسية مدونة 3 عمود"
+  var _post_demos= dir ? "post demos":"نماذج المنشورات"
+  var _post_featured_image= dir ? "post featured image":"منشور مع صورة رئيسية"
+  var _post_featured_slider= dir ? "post featured slider":"منشور مع معرض صور"
+  var _post_featured_video= dir ? "post featured video":"منشور مع فيديو رئيسى"
+  var _other_pages= dir ? "other pages":"صفحات أخرى"
+  var _our_clients= dir ? "our clients":"عملاؤنا"
+  var _404_pages= dir ? "404 pages":"صفحات 404"
+  var _404_pages_1= dir ? "404 page 1":"1 صفحة 404"
+  var _404_pages_2= dir ? "404 page 2":"2 صفحة 404"
+  var _404_pages_3= dir ? "404 page 3":"3 صفحة 404"
+  var _faq= dir ? "FAQ":"أسئلة مكررة"
+  var _sign_up= dir ? "sign up":"إنشاء حساب"
+  var _sign_in= dir ? "sign in":"تسجيل دخول"
+  //- End Navbar Links
+
+  //- start navbar Buttons text
+    var _subscribe = dir ? "subscribe":"إشترك"
+  //- End navbar Buttons text 
+
+
+
+  //-  End Header Vars 
+
+
+
+  //- Start Hero Section Vars
+
+  //- Start Hero Heading 
+  
+  //- arabic text vars
+  var hero_heading_ar_1="دفع أعمالك معنا فىإ"
+  var hero_heading_ar_2="أضف قيمة أكبر لمهارتك معنا"
+  var hero_heading_ar_3="أحصل على أحدث عروضنا عندما تشترك الأن"
+
+  //- english text vars
+  var hero_heading_en_1="boost your business with"
+  var hero_heading_en_2="Add more value to your skills with"
+  var hero_heading_en_3="get our latest offers when subscribing now  "
+
+  var hero_header_1 = dir ? hero_heading_en_1 : hero_heading_ar_1
+  var hero_header_2 = dir ? hero_heading_en_2 : hero_heading_ar_2
+  var hero_header_3 = dir ? hero_heading_en_3 : hero_heading_ar_3
+
+  //- End Hero Heading 
+
+  //- Start Hero cta 
+  var cta_get_started_ar="إبدأ الأن"
+  var cta_get_started_en="get started"
+
+  var cta_video_ar="مشاهدة الفيديو"
+  var cta_video_en="watch our video"
+
+  var cta_subscribe_ar="إشترك الأن"
+  var cta_subscribe_en="subscribe now"
+
+  var cta_get_started= dir ? cta_get_started_en : cta_get_started_ar
+  var cta_video= dir ? cta_video_en : cta_video_ar
+  var cta_subscribe= dir ? cta_subscribe_en : cta_subscribe_ar
+
+
+  //- End Hero cta 
+
+
+  //- End Hero Section Vars
+
+  //- Start services Section Vars
+
+  //-services section Heading 
+  var services_heading_ar="مميزاتنا الرائعة"
+  var services_heading_en="our awesome services"
+  
+  var services_heading= dir ? services_heading_en : services_heading_ar
+
+  //- every service title
+  var service_title_1_ar="حلول مبتكرة"
+  var service_title_2_ar="تطوير متماسك"
+  var service_title_3_ar="تصاميم رائعة"
+  var service_title_4_ar="دعم فنى قوى"
+
+  var service_title_1_en="Creative Solutions"
+  var service_title_2_en="Solid Development"
+  var service_title_3_en="Awesome Designs"
+  var service_title_4_en="Great Support"
+
+  var service_title_1= dir ? service_title_1_en : service_title_1_ar
+  var service_title_2= dir ? service_title_2_en : service_title_2_ar
+  var service_title_3= dir ? service_title_3_en : service_title_3_ar
+  var service_title_4= dir ? service_title_4_en : service_title_4_ar
+ 
+
+  var feautre_text_1_ar=""
+  var feautre_text_1_ar=""
+  var feautre_text_1_ar=""
+  var feautre_text_1_ar=""
+  
+  var feautre_text_1_en=""
+  var feautre_text_1_en=""
+  var feautre_text_1_en=""
+  var feautre_text_1_en=""
+  
+  var cta_see_all= dir ? cta_see_all_en : cta_see_all_ar
+  
+
+
+
+  var cta_see_all_ar="مشاهدة كل المميزات"
+  var cta_see_all_en="see all services"
+
+  var cta_see_all= dir ? cta_see_all_en : cta_see_all_ar
+
+  //- End services Section Vars
+  
+  
+  //- Start Numbers Section Vars
+
+  var number_title_1_ar="مشروعات منتهية"
+  var number_title_2_ar="ساعات عمل"
+  var number_title_3_ar="دخل مالى"
+  var number_title_4_ar="عملاء سعداء"
+
+  var number_title_1_en="Finished Projects"
+  var number_title_2_en="work hours"
+  var number_title_3_en="Money Earned"
+  var number_title_4_en="Finished Projects"
+
+  var number_title_1= dir ? number_title_1_en : number_title_1_ar
+  var number_title_2= dir ? number_title_2_en : number_title_2_ar
+  var number_title_3= dir ? number_title_3_en : number_title_3_ar
+  var number_title_4= dir ? number_title_4_en : number_title_4_ar
+
+  //- End Numbers Section Vars
+  

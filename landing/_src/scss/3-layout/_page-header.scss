@@ -1,0 +1,597 @@
+$header-height_desktop: 75px;
+$header-height_mobile: 75px;
+
+%page-header {
+  position: fixed;
+  top: 0;
+  #{$end-direction}: 0;
+  #{$start-direction}: 0;
+  z-index: 1030;
+  // border-bottom: 1px solid rgba($white-color, .5);
+
+  .main-navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1035;
+    height: $header-height_desktop;
+    @include ma-transition();
+
+    @include ma-lg-screens {
+      height: $header-height_mobile;
+    }
+  }
+
+  //Start brand
+  .navbar-brand {
+    margin: 0;
+    font-weight: 600;
+    max-width: 150px;
+    text-transform: capitalize;
+    color: ($main-color);
+
+    .brand-logo {
+      max-height: 50px;
+
+      @include ma-lg-screens {
+        max-height: 40px;
+      }
+
+      &.light-logo {
+        display: block;
+      }
+
+      &.dark-logo {
+        display: none;
+      }
+    }
+
+    .brand-name {
+      color: $white-color;
+      margin-#{$start-direction}: 0.5rem;
+    }
+  }
+
+  // End brand
+
+  .navbar-menu-wraper {
+    margin-#{$start-direction}: auto;
+
+    @include ma-lg-screens {
+      position: fixed;
+      top: $header-height_mobile;
+      #{$start-direction}: 0;
+      visibility: hidden;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $transparent-black-25;
+      @include ma-transition();
+
+      &.show-menu {
+        visibility: visible;
+        opacity: 1;
+
+        .navbar-nav {
+          @include ma-lg-screens {
+            #{$start-direction}: 0;
+            height: calc(100% - #{$header-height_mobile});
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    text-transform: capitalize;
+    padding: 0 2rem;
+
+    @include ma-transition;
+
+    @include ma-lg-screens {
+      flex-direction: column;
+      position: absolute;
+      #{$start-direction}: -100%;
+      height: 100%;
+      width: 75%;
+      overflow: auto;
+      top: 0;
+      padding: 0;
+      padding-bottom: 1.5rem;
+      background-color: $main-color;
+      overflow-x: hidden;
+    }
+  }
+
+  .nav-item {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    margin-#{$end-direction}: 1.5rem;
+
+    &:last-child {
+      margin-#{$end-direction}: 0;
+    }
+
+    @include ma-lg-screens {
+      margin-#{$end-direction}: 0;
+    }
+  }
+
+  .nav-link {
+    position: relative;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.75px;
+    padding: 0.5rem 0 !important;
+    color: $white-color;
+    @include ma-transition(all, 0.2s);
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      top: 3.5rem;
+      visibility: hidden;
+      opacity: 0;
+      #{$start-direction}: 50%;
+      transform: translateX(-50% * $x-axe-direction);
+      background-color: ($white-color);
+      @include ma-transition($duration: 0.3s);
+    }
+
+    &.active,
+    &:hover {
+      &::after {
+        opacity: 1;
+        visibility: visible;
+        top: 2.5rem;
+        background-color: ($white-color);
+      }
+
+      @include ma-lg-screens {
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    .icon {
+      display: none;
+
+      @include ma-lg-screens {
+        display: inline-block;
+        margin-#{$end-direction}: 1rem;
+        font-size: 1rem;
+      }
+    }
+
+    //nav-link styles on smaller screen
+    @include ma-lg-screens {
+      display: inline-block;
+      padding: 1.25rem 1rem !important;
+      width: 100%;
+
+      &:hover {
+        padding-#{$start-direction}: 1.5rem;
+        background-color: $white-color;
+        color: $main-color;
+      }
+    }
+  }
+
+  .header-cta {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: $white-color;
+    color: $main-color;
+    border-color: transparent;
+
+    &:hover {
+      background-color: transparent;
+      color: $white-color;
+      border-color: $white-color;
+    }
+
+    @include ma-lg-screens {
+      display: none;
+    }
+  }
+
+  // navbar open btn icon rules
+  .menu-toggler-btn {
+    display: none;
+
+    @include ma-lg-screens {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      height: 25px;
+      z-index: 100;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+
+      & > span {
+        display: block;
+        width: 30px;
+        height: 2px;
+        border-radius: 1px;
+        @include ma-transition();
+        background-color: ($white-color);
+      }
+    }
+  }
+
+  // navbar close btn icon rules
+  .close-menu-btn {
+    span:nth-child(1) {
+      transform: rotate(225deg) translateY(-9px);
+    }
+
+    span:nth-child(2) {
+      display: none;
+    }
+
+    span:nth-child(3) {
+      transform: rotate(-45deg) translateY(-9px);
+    }
+  }
+}
+
+%sub-menu {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  min-width: 20rem;
+  #{$start-direction}: 0;
+  margin: 0;
+  padding: 1rem 0;
+  transform: translateY(4rem);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1000;
+  background-color: $white-color;
+  @include ma-box-shadow(0, 0, 30, 0, rgba($extra-dark-grey-color, 0.25));
+  @include ma-transition();
+
+  @include ma-lg-screens {
+    position: static;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+    display: none;
+    background-color: $main-color;
+    transition: none;
+  }
+
+  .sub-menu-item {
+    padding: 0;
+    margin: 0;
+  }
+
+  .sub-menu-link {
+    color: $main-color;
+    padding: 1rem 1rem 1rem 1.5rem !important;
+    @include ma-transition(all, 0.25s);
+
+    &:after {
+      display: none;
+    }
+
+    &:hover {
+      color: $white-color;
+      background-color: $main-color;
+      padding-#{$start-direction}: 2rem !important;
+    }
+
+    .icon {
+      display: inline-block;
+      margin-#{$end-direction}: 1rem;
+      font-size: 1rem;
+    }
+
+    @include ma-lg-screens {
+      color: $grey-color;
+
+      &:hover {
+        color: $main-color;
+        background-color: $white-color;
+      }
+    }
+  }
+}
+
+.has-sub-menu {
+  .down-Arrow-icon {
+    line-height: 1;
+    font-size: 0.7rem;
+    margin-#{$start-direction}: 0.25rem;
+  }
+
+  & > .sub-menu {
+    @extend %sub-menu;
+  }
+
+  &:hover {
+    > .sub-menu {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(1rem);
+
+      @include ma-lg-screens {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .has-sub-menu {
+    .sub-menu {
+      top: 0;
+      #{$end-direction}: 100%;
+      #{$start-direction}: auto;
+    }
+
+    &:hover {
+      > .sub-menu {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .down-Arrow-icon {
+      position: absolute;
+      #{$end-direction}: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: (transform, 0.25s);
+    }
+
+    @include ma-lg-screens {
+      position: static;
+      transform: none;
+    }
+  }
+}
+
+.page-header {
+  @extend %page-header;
+}
+
+.header-stand-out {
+  // background-color: $main-color;
+  border-color: transparent;
+  box-shadow: 0 1px 30px rgba($extra-dark-grey-color, 0.25);
+}
+
+.menu-on-start {
+  .navbar-menu-wraper {
+    margin-#{$end-direction}: auto;
+    margin-#{$start-direction}: 3rem;
+
+    @include ma-lg-screens {
+      margin: 0;
+    }
+  }
+}
+
+.menu-on-end {
+  .navbar-menu-wraper {
+    margin-#{$start-direction}: auto;
+    margin-#{$end-direction}: 3rem;
+
+    @include ma-lg-screens {
+      margin: 0;
+    }
+  }
+}
+
+.menu-on-center {
+  .navbar-menu-wraper {
+    margin-#{$start-direction}: auto;
+    margin-#{$end-direction}: auto;
+
+    @include ma-lg-screens {
+      margin: 0;
+    }
+  }
+}
+
+.dark-header {
+  &.header-stand-out {
+    background-color: $extra-dark-grey-color;
+
+    .navbar-menu-wraper {
+      @include ma-lg-screens {
+        background-color: $transparent-black-25;
+      }
+    }
+
+    .navbar-nav {
+      @include ma-lg-screens {
+        background-color: $extra-dark-grey-color;
+      }
+    }
+
+    .nav-link {
+      color: $white-color;
+
+      &::after {
+        background-color: ($white-color);
+      }
+
+      &.active,
+      &:hover {
+        color: $white-color;
+
+        &::after {
+          background-color: $white-color;
+        }
+      }
+
+      @include ma-lg-screens {
+        color: $white-color;
+        background-color: $extra-dark-grey-color;
+
+        &:hover {
+          color: $extra-dark-grey-color;
+          background-color: $white-color;
+        }
+      }
+    }
+
+    .header-cta {
+      background-color: $white-color;
+      color: $black-color;
+
+      &:hover {
+        background-color: transparent;
+        color: $white-color;
+        border-color: $white-color;
+      }
+    }
+
+    .menu-toggler-btn {
+      & > span {
+        background-color: $white-color;
+      }
+    }
+
+    .has-sub-menu {
+      .sub-menu {
+        .sub-menu-link {
+          color: $extra-dark-grey-color;
+
+          &:hover {
+            color: $white-color;
+            background-color: $black-color;
+          }
+
+          @include ma-lg-screens {
+            color: $white-color;
+
+            &:hover {
+              color: $black-color;
+              background-color: $white-color;
+            }
+          }
+        }
+
+        @include ma-lg-screens {
+          background-color: $extra-dark-grey-color;
+        }
+      }
+    }
+  }
+}
+
+.light-header {
+  background-color: $white-color;
+
+  .navbar-brand {
+    .brand-logo {
+      &.light-logo {
+        display: none;
+      }
+
+      &.dark-logo {
+        display: block;
+      }
+    }
+
+    .brand-name {
+      color: $main-color;
+      margin-#{$start-direction}: 0.5rem;
+    }
+  }
+
+  .navbar-menu-wraper {
+    @include ma-lg-screens {
+      background-color: $transparent-black-25;
+    }
+  }
+
+  .navbar-nav {
+    @include ma-lg-screens {
+      background-color: $white-color;
+    }
+  }
+
+  .nav-link {
+    color: $extra-dark-grey-color;
+
+    &::after {
+      background-color: $extra-dark-grey-color;
+    }
+
+    &.active::after {
+      background-color: $extra-dark-grey-color;
+    }
+    &:hover::after {
+      background-color: $extra-dark-grey-color;
+    }
+
+    @include ma-lg-screens {
+      color: $extra-dark-grey-color;
+
+      &:hover {
+        color: $white-color;
+        background-color: $extra-dark-grey-color;
+      }
+    }
+  }
+
+  .header-cta {
+    background-color: $extra-dark-grey-color;
+    color: $white-color;
+
+    &:hover {
+      background-color: transparent;
+      color: $extra-dark-grey-color;
+      border-color: $extra-dark-grey-color;
+    }
+  }
+
+  .menu-toggler-btn {
+    & > span {
+      background-color: $extra-dark-grey-color;
+    }
+  }
+
+  .has-sub-menu {
+    .sub-menu {
+      background-color: $white-color;
+
+      .sub-menu-link {
+        color: $extra-dark-grey-color;
+
+        &:hover {
+          color: $white-color;
+          background-color: $extra-dark-grey-color;
+        }
+
+        @include ma-lg-screens {
+          color: $extra-dark-grey-color;
+          background-color: $white-color;
+
+          &:hover {
+            color: $white-color;
+            background-color: $extra-dark-grey-color;
+          }
+        }
+      }
+    }
+  }
+}

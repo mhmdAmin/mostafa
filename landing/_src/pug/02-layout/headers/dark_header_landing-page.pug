@@ -1,0 +1,21 @@
+header(id="page-header" class= landing_page_header_ClassList )
+  //start navbar
+  div(class="container")
+    nav(class="  main-navbar " id="main-nav")
+      //- adding navbar-brand
+      a(class="navbar-brand " href="#")
+          img(src=logo_light class="brand-logo light-logo img-fluid " alt="")
+          img(src=logo_dark  class="brand-logo dark-logo img-fluid " alt="")
+
+      //- adding menu-toggler-btn (Hamburger menu)
+      include _menu-toggler-btn.pug
+              
+      //- adding navbar links
+      include _dark_landing_page-navbar-links_VARS.pug
+      - var nav_links_arr = [home, services, about, portfolio, pricing, testimonials, faq, contact_us];
+      +add_navbar_links(nav_links_arr)
+
+      a(href="#0" class="header-cta  ma-btn-primary ") Subscribe
+
+                    
+    //End navbar

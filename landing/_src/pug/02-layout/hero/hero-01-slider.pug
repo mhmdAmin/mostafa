@@ -1,0 +1,182 @@
+-if (pageDir==="ltr")
+  section(id="page-hero" class="page-hero hero-swiper-slider d-flex align-items-center")
+    div(class="social-icons ")
+      +add_social_icons_list("dir-row sc-flat")
+
+
+    //Start  Swiper JS slider
+    div(class="slider swiper-container")
+      div(class="swiper-wrapper text-center")
+      
+      
+      
+        //first slider
+        div(class="swiper-slide") 
+          div(class="slide-content")
+          
+            div(class="slider-bg")
+              div(class="overlay-color")
+              img(src=hero_slider_bg_img_1 class="slider-bg-img" alt="slider-bg 1")
+
+            div(class="container")
+                  div(class="hero-text-area   ")
+                    div( class="row justify-content-center")
+                      div(class="col-12 col-lg-8 mx-auto ")
+                        h1( class="slide-title "   data-splitting="words" ) create the business you <span class="hollow-text">dreamed</span> about
+                        //- h1( class="slide-title "   data-splitting="words" ) تمتع معنا باحدث العروض المتاحه على الموقع
+                        
+                      div(class="col-9  col-md-10 col-lg-8 mx-auto ")
+                        p(class="slide-subtitle narrow-centerd-text "  data-splitting="words" ) Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem recusandae reiciendis esse? Corporis, quo eum.
+                          
+                      div(class="col-12 ")
+                        div(class="cta-links-area wow  fadeInUp " data-wow-delay="0.8s")
+                          a(href="#0" class=" ma-btn-primary cta-link cta-link-primary  wow  fadeInUp " data-wow-delay="0.8s") start now
+                          a(href="#0" class=" ma-btn-primary cta-link  wow  fadeInUp " data-wow-delay="1s") Contact us
+
+        //second slider
+        div(class="swiper-slide") 
+          div(class="slide-content")
+            div(class="slider-bg")
+              div(class="overlay-color")
+              img(src=hero_slider_bg_img_2 class="slider-bg-img" alt="slider-bg 2")
+            div(class="container")
+              div(class="hero-text-area ")
+                div( class="row justify-content-center")
+                  div(class="col-12 col-lg-8 mx-auto ")
+                    h1( class="slide-title "   data-splitting="words"  )  get another <span class="hollow-text">sucsses</span> with our awesome team
+                  div(class="col-9  col-md-10 col-lg-8 mx-auto ")
+                    p(class="slide-subtitle narrow-centerd-text   " data-splitting="words") Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem recusandae reiciendis esse? Corporis, quo eum.
+
+                          
+                  div(class="col-12 ")
+                    div(class="cta-links-area  wow  fadeInUp " data-wow-delay="0.8s")
+                      +add_play_btn_row_dir('watch our video')
+    
+
+        //third slider
+        div(class="swiper-slide") 
+          div(class="slide-content")
+            div(class="slider-bg")
+              div(class="overlay-color")
+              img(src=hero_slider_bg_img_3 class="slider-bg-img" alt="slider-bg 3")
+            div(class="container")
+              div(class="hero-text-area  ")
+                div( class="row justify-content-center")
+                  div(class="col-12 col-lg-8 mx-auto ")
+                    h1( class="slide-title   wow  fadeInUp "   data-splitting="words" ) <span class="hollow-text">download</span> our app to start your journy  
+                    
+                  div(class="col-9  col-md-10 col-lg-8 mx-auto ")
+                    p(class="slide-subtitle narrow-centerd-text   " data-splitting="words") Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem recusandae reiciendis esse? Corporis, quo eum.
+
+                          
+                  div(class="col-12 ")
+                    div(class="cta-links-area wow  fadeInUp " data-wow-delay="0.8s")
+                      a(href="#0" class=" ma-btn-primary cta-link cta-link-primary  wow  fadeInUp " data-wow-delay="0.8s") download now
+
+
+      
+      
+      //navigation buttons
+      div(class="swiper-button-prev  wow fadeInUp" data-wow-offset="0" data-wow-delay=".4s")
+        div(class="left-arrow")
+          //- adding the PREV correct icon arrow  according to the direction of the page
+          +add_correct_PREV_arrow_icon()
+
+      div(class="swiper-button-next wow fadeInUp" data-wow-offset="0" data-wow-delay=".4s")
+        div(class="right-arrow")
+          //- adding the NEXT correct icon arrow  according to the direction of the page
+          +add_correct_NEXT_arrow_icon()
+
+
+//- RTL Pages 
+-else if(pageDir==="rtl")
+
+  section(id="page-hero" class="page-hero hero-swiper-slider d-flex align-items-center")
+    div(class="social-icons ")
+      +add_social_icons_list("dir-row sc-flat")
+
+
+    //Start  Swiper JS slider
+    div(class="slider swiper-container")
+      div(class="swiper-wrapper text-center")
+      
+      
+      
+        //first slider
+        div(class="swiper-slide") 
+          div(class="slide-content")
+          
+            div(class="slider-bg")
+              div(class="overlay-color")
+              img(src=hero_slider_bg_img_1 class="slider-bg-img" alt="slider-bg 1")
+
+            div(class="container")
+                  div(class="hero-text-area   ")
+                    div( class="row justify-content-center")
+                      div(class="col-12 col-lg-8 mx-auto ")
+                        h1( class="slide-title "   data-splitting="words" ) تمتع معنا باحدث العروض <span class="hollow-text">المتاحه على </span>الموقع
+                        
+                        
+                      div(class="col-9  col-md-10 col-lg-8 mx-auto ")
+                        p(class="slide-subtitle narrow-centerd-text "  data-splitting="words" ) هذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة فلن يبدو وكأنه نص منسوخ، غير منظم، غير منسق، أو حتى غير مفهوم. لأنه مازال نصاً بديلاً ومؤقتاً
+                          
+                      div(class="col-12 ")
+                        div(class="cta-links-area wow  fadeInUp " data-wow-delay="0.8s")
+                          a(href="#0" class=" ma-btn-primary cta-link cta-link-primary  wow  fadeInUp " data-wow-delay="0.8s") ابدأ حالا
+                          a(href="#0" class=" ma-btn-primary cta-link  wow  fadeInUp " data-wow-delay="1s") اتصل الان
+
+        //second slider
+        div(class="swiper-slide") 
+          div(class="slide-content")
+            div(class="slider-bg")
+              div(class="overlay-color")
+              img(src=hero_slider_bg_img_2 class="slider-bg-img" alt="slider-bg 2")
+            div(class="container")
+              div(class="hero-text-area ")
+                div( class="row justify-content-center")
+                  div(class="col-12 col-lg-8 mx-auto ")
+                    //- h1( class="slide-title "   data-splitting="words"  )  get another <span class="hollow-text">sucsses</span> with our awesome team
+                    h1( class="slide-title "   data-splitting="words"  )  أحصل على <span class="hollow-text">نجاح</span> اخر مع فريقنا الرائع
+                  div(class="col-9  col-md-10 col-lg-8 mx-auto ")
+                    p(class="slide-subtitle narrow-centerd-text   " data-splitting="words") هذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة فلن يبدو وكأنه نص منسوخ، غير منظم، غير منسق، أو حتى غير مفهوم. لأنه مازال نصاً بديلاً ومؤقتاً
+
+                          
+                  div(class="col-12 ")
+                    div(class="cta-links-area  wow  fadeInUp " data-wow-delay="0.8s")
+                      +add_play_btn_row_dir('شاهد الفيديو')
+    
+
+        //third slider
+        div(class="swiper-slide") 
+          div(class="slide-content")
+            div(class="slider-bg")
+              div(class="overlay-color")
+              img(src=hero_slider_bg_img_3 class="slider-bg-img" alt="slider-bg 3")
+            div(class="container")
+              div(class="hero-text-area  ")
+                div( class="row justify-content-center")
+                  div(class="col-12 col-lg-8 mx-auto ")
+                    h1( class="slide-title   wow  fadeInUp "   data-splitting="words" ) <span class="hollow-text">قم بتنزيل </span> البرنامج للحصول على اخر التحديثات  
+                    
+                  div(class="col-9  col-md-10 col-lg-8 mx-auto ")
+                    p(class="slide-subtitle narrow-centerd-text   " data-splitting="words") هذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة فلن يبدو وكأنه نص منسوخ، غير منظم، غير منسق، أو حتى غير مفهوم. لأنه مازال نصاً بديلاً ومؤقتاً
+
+                          
+                  div(class="col-12 ")
+                    div(class="cta-links-area wow  fadeInUp " data-wow-delay="0.8s")
+                      a(href="#0" class=" ma-btn-primary cta-link cta-link-primary  wow  fadeInUp " data-wow-delay="0.8s") جربه الان
+
+
+      
+      
+      //navigation buttons
+      div(class="swiper-button-prev  wow fadeInUp" data-wow-offset="0" data-wow-delay=".4s")
+        div(class="left-arrow")
+          //- adding the PREV correct icon arrow  according to the direction of the page
+          +add_correct_PREV_arrow_icon()
+
+      div(class="swiper-button-next wow fadeInUp" data-wow-offset="0" data-wow-delay=".4s")
+        div(class="right-arrow")
+          //- adding the NEXT correct icon arrow  according to the direction of the page
+          +add_correct_NEXT_arrow_icon()
+

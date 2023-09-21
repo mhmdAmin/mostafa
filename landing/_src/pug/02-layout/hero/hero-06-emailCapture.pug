@@ -1,0 +1,41 @@
+section( id="page-hero" class="d-flex align-items-center page-hero ")
+    div(class="overlay-image-bg  parallax")
+    div(class="overlay-shape-image-bg")
+    div(class="overlay-color ")
+
+    //- include ../../04-components/bg-shapes.pug       
+
+    div(class="container")
+        div(class="row d-flex align-items-center")
+            
+            div(class="col-12   mx-auto col-lg-6")
+                //Start of .hero-text-area
+                div(class="hero-text-area mb-5  mb-lg-0 ")
+                    h1( class="hero-title "   data-splitting) get our latest offers when subscribing now  
+                        span(class="heading-brand-name")
+                    p(class="hero-subtitle "   data-splitting)
+                        . 
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed
+                            architecto dolorum inventore
+                            impedit ad porro nisi autem iste quidem minus. 
+                    div(class="lead-generation-area   wow  fadeInUp " data-wow-delay="0.7s")
+                      form(class="single-field-form")
+                        div(class="control-group")
+                          input(id="hero-email" type="email" required placeholder="e.g. yourname@domin.xyz" )
+                          button(type="submit" class="ma-btn-primary  subscribe-btn ") Subscribe Now
+                     
+            //End of .hero-text-area
+
+            div(class="col-12 col-lg-1")
+                //for align adjustments only
+            //
+            //
+
+            //Start of hero-image
+            div( class="col-12   mx-md-auto col-lg-5" )   
+                div( class="hero-image-area  wow fadeIn " data-wow-delay="0.4s")
+                    div(class="hero-img-wraper   ")
+                        //- div(class="rotating-dotted-circle_white-color")
+                        img( src= hero_illustration_4  alt="" class="img-fluid " draggable="false")
+            //End of hero-image
+            
