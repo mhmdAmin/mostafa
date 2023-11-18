@@ -1,7 +1,7 @@
 <?php
 
-if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
-	// Variables
+if ( 'POST' === $_SERVER['REQUEST_METHOD'] ) {
+	// Variables.
 	$name    = trim( $_POST['UserName'] );
 	$email   = trim( $_POST['UserEmail'] );
 	$subject = trim( $_POST['subject'] );
