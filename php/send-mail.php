@@ -29,14 +29,14 @@ if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
 		$mail->isSMTP();
 		$mail->Host       = 'smtp.office365.com';
 		$mail->SMTPAuth   = true;
-		$mail->Username   = 'enquiries@bastpet.co.uk';
+		$mail->Username   = 'mostafa.amin@bastpet.co.uk';
 		$mail->Password   = 'Bast2023&'; // use App Password if MFA is enabled
 		$mail->SMTPSecure = 'tls';
 		$mail->Port       = 587;
 
 		// Email Content
-		$mail->setFrom( 'enquiries@bastpet.co.uk', 'BastPet Contact Form' );
-		$mail->addAddress( 'enquiries@bastpet.co.uk' );
+		$mail->setFrom( 'mostafa.amin@bastpet.co.uk', 'BastPet Contact Form' );
+		$mail->addAddress( 'mostafa.amin@bastpet.co.uk' );
 		$mail->addReplyTo( $email, $name );
 
 		$mail->isHTML( true );
