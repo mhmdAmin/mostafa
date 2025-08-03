@@ -10,8 +10,6 @@ use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\OAuth;
 
 
-
-
 require __DIR__ . '/vendor/autoload.php';
 
 // Get access token from Microsoft
