@@ -365,17 +365,17 @@ $(function () {
         data: contactForm.serialize(),
 
         success: function (data) {
-          // const res = JSON.parse(data);
-          // $(".don-msg").text(res.message);
-          $(".done-msg")
-            .text("Thank you, We recevived your message!")
-            .toggleClass("show");
-          setTimeout(function () {
-            $(".done-msg").text("").toggleClass("show");
-          }, 4000);
-          contactForm[0].reset();
+          const res = JSON.parse(data);
+          $(".don-msg").html(res.message);
+        //   $(".done-msg")
+        //     .text("Thank you, We recevived your message!")
+        //     .toggleClass("show");
+        //   setTimeout(function () {
+        //     $(".done-msg").text("").toggleClass("show");
+        //   }, 4000);
+        //   contactForm[0].reset();
         },
-        erroe: function (err) {
+        error: function (err) {
          $(".don-msg").text(err); ;
         },
       });
