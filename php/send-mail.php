@@ -38,6 +38,7 @@ function getMicrosoftAccessToken( $tenantId, $clientId, $clientSecret ) {
 	return $data['access_token'] ?? null;
 }
 
+
 // Handle form POST
 if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
 	$name    = trim( $_POST['UserName'] ?? '' );
