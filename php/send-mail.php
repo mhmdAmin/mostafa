@@ -12,11 +12,7 @@ use PHPMailer\PHPMailer\OAuth;
 
 
 
-
-require 'src/PHPMailer.php';
-require 'src/SMTP.php';
-require 'src/Exception.php';
-require 'src/OAuth.php';
+require __DIR__ . '/vendor/autoload.php';
 
 // Get access token from Microsoft
 function getMicrosoftAccessToken( $tenantId, $clientId, $clientSecret ) {
@@ -61,7 +57,7 @@ if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
 			exit;
 	}
 
-	require __DIR__ . '/vendor/autoload.php';
+
 	$dotenv = Dotenv\Dotenv::createImmutable( __DIR__ );
 	$dotenv->load();
 
