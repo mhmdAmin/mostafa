@@ -364,9 +364,10 @@ $(function () {
         url: contactForm.attr("action"),
         data: contactForm.serialize(),
 
-        success: function (data) {
-          const res = JSON.parse(data);
-          $(".don-msg").html(res.message);
+        success: function(data) {
+          console.log(data)
+          // const res = JSON.parse(data);
+          // $(".don-msg").html(res.message);
         //   $(".done-msg")
         //     .text("Thank you, We recevived your message!")
         //     .toggleClass("show");
