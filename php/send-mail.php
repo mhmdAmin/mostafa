@@ -1,45 +1,66 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-if ( 'POST' === $_SERVER['REQUEST_METHOD'] ) {
-	// Variables.
+require 'src/PHPMailer.php';
+require 'src/SMTP.php';
+require 'src/Exception.php';
+
+if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
 	$name    = trim( $_POST['UserName'] );
 	$email   = trim( $_POST['UserEmail'] );
 	$subject = trim( $_POST['subject'] );
 	$message = trim( $_POST['message'] );
-	// $to = "your_email@example.com"; // Change with your email address
-	$to = 'enquiries@bastpet.co.uk'; // Change with your email address
 
-	// Email address validation - works with php 5.2+
-	function is_email_valid( $email ) {
-		return filter_var( $email, FILTER_VALIDATE_EMAIL );
+	if ( ! filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
+		echo json_encode(
+			array(
+				'status'  => 'error',
+				'message' => 'Invalid email address.',
+			)
+		);
+		exit;
 	}
 
+	$mail = new PHPMailer( true );
 
-	if ( isset( $name ) && isset( $email ) && isset( $subject ) && isset( $message ) && is_email_valid( $email ) ) {
+	try {
+		// SMTP Settings
+		$mail->isSMTP();
+		$mail->Host       = 'smtp.office365.com';
+		$mail->SMTPAuth   = true;
+		$mail->Username   = 'enquiries@bastpet.co.uk';
+		$mail->Password   = 'Bast2023&'; // use App Password if MFA is enabled
+		$mail->SMTPSecure = 'tls';
+		$mail->Port       = 587;
 
-		// Avoid Email Injection and Mail Form Script Hijacking
-		$pattern = '/(content-type|bcc:|cc:|to:)/i';
-		if ( preg_match( $pattern, $name ) || preg_match( $pattern, $email ) || preg_match( $pattern, $message ) ) {
-			exit;
-		}
+		// Email Content
+		$mail->setFrom( 'enquiries@bastpet.co.uk', 'BastPet Contact Form' );
+		$mail->addAddress( 'enquiries@bastpet.co.uk' );
+		$mail->addReplyTo( $email, $name );
 
-		// Email will be send
+		$mail->isHTML( true );
+		$mail->Subject = $subject;
+		$mail->Body    = "
+            <strong>Name:</strong> $name <br>
+            <strong>Email:</strong> $email <br>
+            <strong>Subject:</strong> $subject <br><br>
+            <strong>Message:</strong> <br>$message
+        ";
 
-		// HTML Elements for Email Body
-		$body = <<<EOD
-	<strong>Name:</strong> $name <br>
-	<strong>Email:</strong> <a href="mailto:"$email">$email</a> <br> 
-	<strong>Subject:</strong> $subject <br><br><br>
-	
-	<strong>Message:</strong> <br> $message 
-EOD;
-		// Must end on first column
-
-		$headers  = "From: $name <$email>\r\n";
-		$headers .= 'MIME-Version: 1.0' . "\r\n";
-		$headers .= 'Content-type: text/html; charset=UTF-8 ' . "\r\n";
-
-		// PHP email sender
-		mail( $to, $subject, $body, $headers );
+		$mail->send();
+		echo json_encode(
+			array(
+				'status'  => 'success',
+				'message' => 'Thank you! Your message has been sent.',
+			)
+		);
+	} catch ( Exception $e ) {
+		echo json_encode(
+			array(
+				'status'  => 'error',
+				'message' => 'Mailer Error: ' . $mail->ErrorInfo,
+			)
+		);
 	}
 }

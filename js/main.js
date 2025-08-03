@@ -366,7 +366,7 @@ $(function () {
 
         success: function (data) {
           $(".done-msg")
-            .text("Thank you, Your Message Was Received!")
+            .text("Thank you, We recevived your message!")
             .toggleClass("show");
           setTimeout(function () {
             $(".done-msg").text("").toggleClass("show");
