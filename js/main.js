@@ -366,7 +366,7 @@ $(function () {
 
         success: function (data) {
           const res = JSON.parse(data);
-          $(".don-msg").text(res.message).toggleClass("show");
+          $(".don-msg").text(res.message);
           // $(".done-msg")
           //   .text("Thank you, We recevived your message!")
           //   .toggleClass("show");
@@ -374,6 +374,9 @@ $(function () {
           //   $(".done-msg").text("").toggleClass("show");
           // }, 4000);
           contactForm[0].reset();
+        },
+        erroe: function (err) {
+         $(".don-msg").text(err); ;
         },
       });
       return false;
