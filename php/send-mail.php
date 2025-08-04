@@ -1,16 +1,11 @@
 <?php
-
-ini_set( 'display_errors', 1 );
-ini_set( 'display_startup_errors', 1 );
-error_reporting( E_ALL );
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\OAuth;
-use League\OAuth2\Client\Provider\GenericProvider;
 
-
-require __DIR__ . '/vendor/autoload.php';
+require 'vendor/autoload.php'; // Adjust if needed
 
 
 // Handle form POST
@@ -19,7 +14,7 @@ if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
 	$email   = trim( $_POST['UserEmail'] ?? '' );
 	$subject = trim( $_POST['subject'] ?? '' );
 	$message = trim( $_POST['message'] ?? '' );
-
+}
 if ( ! filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
 	echo json_encode(
 		array(
@@ -27,67 +22,44 @@ if ( ! filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
 			'message' => 'Invalid email address.',
 		)
 	);
-		exit;
+	exit;
 }
 
 
 
-
-require 'vendor/autoload.php';
-// Make sure this loads PHPMailer + League OAuth2
-
 $mail = new PHPMailer( true );
 
 try {
+	// Server settings
 	$mail->isSMTP();
-	$mail->Host       = 'smtp.office365.com';
-	$mail->Port       = 587;
-	$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+	$mail->Host       = 'smtp.gmail.com';
 	$mail->SMTPAuth   = true;
+	$mail->Username   = 'bastpet.uk@gmail.com';        // Your Gmail
+	$mail->Password   = 'bqqzzthczuaijqht';          // 16-char App Password for Gmail
+	$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+	$mail->Port       = 587;
 
-	$mail->AuthType = 'XOAUTH2';
+	// Recipients
+	$mail->setFrom( 'bastpet.uk@gmail.com', 'bastpet.co.uk[ Contact Form ]' );
+	// $mail->addAddress( 'bastpet.uk@gmail.com' );         // Send to yourself
+	$mail->addAddress( 'mostafa.amin@bastpet.co.uk' );         // Send to yourself
+	// Optional: Forward copy to business email (can also be done via Gmail settings)
 
-	$provider = new GenericProvider(
-		array(
-			'clientId'                => getenv( 'CLIENT_ID' ),
-			'clientSecret'            => getenv( 'CLIENT_SECRET' ),
-			'redirectUri'             => 'https://localhost', // Not used in this case
-			'urlAuthorize'            => 'https://login.microsoftonline.com/' . getenv( 'TENANT_ID' ) . '/oauth2/v2.0/authorize',
-			'urlAccessToken'          => 'https://login.microsoftonline.com/' . getenv( 'TENANT_ID' ) . '/oauth2/v2.0/token',
-			'urlResourceOwnerDetails' => 'https://graph.microsoft.com/v1.0/me',
-			'scopes'                  => array( 'https://graph.microsoft.com/.default' ),
-		)
-	);
-
-	$mail->setOAuth(
-		new OAuth(
-			array(
-				'provider'     => $provider,
-				'clientId'     => getenv( 'CLIENT_ID' ),
-				'clientSecret' => getenv( 'CLIENT_SECRET' ),
-				'refreshToken' => getenv( 'REFRESH_TOKEN' ),
-				'userName'     => getenv( 'EMAIL_SENDER' ),
-			)
-		)
-	);
-
-	$mail->setFrom( getenv( 'EMAIL_SENDER' ), 'BastPet Contact' );
-	$mail->addAddress( getenv( 'EMAIL_RECEIVER' ) );
-	$mail->Subject = 'Test Email';
-	$mail->Body    = 'This is a test message sent using Microsoft 365 via OAuth2 and PHPMailer.';
+	// Content
+	$mail->isHTML( true );
+	$mail->CharSet  = 'UTF-8';
+	$mail->Encoding = 'base64';
+	$mail->Subject  = $subject;
+	$mail->Body     = $message;
+	$mail->AltBody  = $message;
 
 	$mail->send();
-	echo json_encode(
-		array(
-			'success' => true,
-			'message' => 'Message has been sent',
-		)
-	);
+	// echo json_encode(['success' => true, 'message' => 'Message has been sent']);
 } catch ( Exception $e ) {
 	echo json_encode(
 		array(
 			'success' => false,
-			'message' => "Mailer Error: {$mail->ErrorInfo}",
+			'message' => "Message could not be sent. Error: {$mail->ErrorInfo}",
 		)
 	);
 }

@@ -365,16 +365,16 @@ $(function () {
         data: contactForm.serialize(),
 
         success: function(data) {
-          console.log(data)
+          // console.log(data)
           // const res = JSON.parse(data);
           // $(".don-msg").html(res.message);
-        //   $(".done-msg")
-        //     .text("Thank you, We recevived your message!")
-        //     .toggleClass("show");
-        //   setTimeout(function () {
-        //     $(".done-msg").text("").toggleClass("show");
-        //   }, 4000);
-        //   contactForm[0].reset();
+          $(".done-msg")
+            .text("Thank you, We recevived your message!")
+            .toggleClass("show");
+          setTimeout(function () {
+            $(".done-msg").text("").toggleClass("show");
+          }, 4000);
+          contactForm[0].reset();
         },
         error: function (err) {
          $(".don-msg").text(err); ;
