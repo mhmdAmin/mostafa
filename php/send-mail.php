@@ -52,9 +52,10 @@ try {
 			'clientId'                => getenv( 'CLIENT_ID' ),
 			'clientSecret'            => getenv( 'CLIENT_SECRET' ),
 			'redirectUri'             => 'https://localhost', // Not used in this case
-			'urlAuthorize'            => '',
-			'urlAccessToken'          => '',
-			'urlResourceOwnerDetails' => '',
+			'urlAuthorize'            => 'https://login.microsoftonline.com/' . getenv( 'TENANT_ID' ) . '/oauth2/v2.0/authorize',
+			'urlAccessToken'          => 'https://login.microsoftonline.com/' . getenv( 'TENANT_ID' ) . '/oauth2/v2.0/token',
+			'urlResourceOwnerDetails' => 'https://graph.microsoft.com/v1.0/me',
+			'scopes'                  => array( 'https://graph.microsoft.com/.default' ),
 		)
 	);
 
