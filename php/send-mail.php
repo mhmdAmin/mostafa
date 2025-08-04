@@ -41,8 +41,9 @@ try {
 
 	// Recipients
 	$mail->setFrom( 'bastpet.uk@gmail.com', 'bastpet.co.uk[ Contact Form ]' );
-	// $mail->addAddress( 'bastpet.uk@gmail.com' );         // Send to yourself
-	$mail->addAddress( 'mostafa.amin@bastpet.co.uk' );         // Send to yourself
+	$mail->addAddress( 'bastpet.uk@gmail.com' );         // Send to yourself
+	$mail->addAddress( 'mostafa.amin@bastpet.co.uk' );         // Send to another email address
+
 	// Optional: Forward copy to business email (can also be done via Gmail settings)
 
 	// Content
