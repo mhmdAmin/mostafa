@@ -46,10 +46,9 @@ try {
 	// Recipients
 	$mail->setFrom( $hoster_email, '[ contact Form ]' );
 	$mail->addAddress( $hoster_email );         // Send to yourself
-	$mail->addAddress( $sender_email );         // Add sender email address
 	$mail->addAddress( 'mostafa.amin@bastpet.co.uk' );   // Optional: Forward copy to another email (can also be done via Gmail settings)
 
-	$mail->addReplyTo( $sender_email );         // Reply to sender email address
+	$mail->addReplyTo( $sender_email, $name );         // Reply to sender email address
 
 	// Content
 	$mail->isHTML( true );
