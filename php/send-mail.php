@@ -40,7 +40,7 @@ try {
 	$mail->Port       = 587;
 
 	// Recipients
-	$mail->setFrom( 'bastpet.uk@gmail.com', 'bastpet.co.uk[ Contact Form ]' );
+	$mail->setFrom( $email, 'bastpet.co.uk[ Contact Form ]' );
 	$mail->addAddress( 'bastpet.uk@gmail.com' );         // Send to yourself
 	$mail->addAddress( 'mostafa.amin@bastpet.co.uk' );         // Send to another email address
 
