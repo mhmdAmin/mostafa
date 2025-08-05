@@ -48,7 +48,7 @@ try {
 	// Recipients
 	$mail->setFrom( $hoster_email, '[ contact Form ]' );
 	$mail->addAddress( $hoster_email );         // Send to yourself
-	$mail->addAddress( 'mostafa.amin@bastpet.co.uk' );   // Optional: Forward copy to another email (can also be done via Gmail settings)
+	// $mail->addAddress( 'mostafa.amin@bastpet.co.uk' );   // Optional: Forward copy to another email (can also be done via Gmail settings)
 
 	$mail->addReplyTo( $sender_email, $name );         // Reply to sender email address
 
@@ -57,13 +57,20 @@ try {
 	$mail->CharSet  = 'UTF-8';
 	$mail->Encoding = 'base64';
 	$mail->Subject  = $subject;
-	$mail->Body     = "Name: $name\n" .
-						"Email: $sender_email\n" .
-						"Subject: $subject\n" .
-						"Message: $message";
+	$mail->Body     = "Name: $name<br>" .
+						"Email: $sender_email<br>" .
+						"Subject: $subject<br>" .
+						'Message:<br>' . $message;
+
+	// the plain text version of the message, if the client not supports HTML emails.
+	$mail->AltBody =
+				"Name: $name\n" .
+				"Email: $sender_email\n" .
+				"Subject: $subject\n" .
+				"Message:\n$message";
 
 
-	$mail->AltBody = 'No Messages body';
+	// Send
 
 	$mail->send();
 
