@@ -30,8 +30,10 @@ if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
 // }
 
 
-$hoster_email = 'bastpet.uk@gmail.com';
-$mail         = new PHPMailer( true );
+$hoster_email       = 'bastpet.uk@gmail.com';
+$gmail_app_password = 'bqqzzthczuaijqht';
+
+$mail = new PHPMailer( true );
 
 try {
 	// Server settings
@@ -39,7 +41,7 @@ try {
 	$mail->Host       = 'smtp.gmail.com';
 	$mail->SMTPAuth   = true;
 	$mail->Username   = $hoster_email;        // Your Gmail
-	$mail->Password   = 'bqqzzthczuaijqht';          // 16-char App Password for Gmail
+	$mail->Password   = $gmail_app_password;          // 16-char App Password for Gmail
 	$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 	$mail->Port       = 587;
 
@@ -55,8 +57,10 @@ try {
 	$mail->CharSet  = 'UTF-8';
 	$mail->Encoding = 'base64';
 	$mail->Subject  = $subject;
-	$mail->Body     = $message;
-	$mail->AltBody  = 'No Messages body';
+	$mail->Body     = "Name: $name\nEmail: $sender_email\nMessage: $message"
+
+
+	$mail->AltBody = 'No Messages body';
 
 	$mail->send();
 
