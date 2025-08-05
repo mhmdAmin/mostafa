@@ -57,7 +57,10 @@ try {
 	$mail->CharSet  = 'UTF-8';
 	$mail->Encoding = 'base64';
 	$mail->Subject  = $subject;
-	$mail->Body     = "Name: $name\n" . "Email: $sender_email\n" . "Subject: $subject\n" . "Message: $message";
+	$mail->Body     = "Name: $name\n" .
+						"Email: $sender_email\n" .
+						"Subject: $subject\n" .
+						"Message: $message";
 
 
 	$mail->AltBody = 'No Messages body';
